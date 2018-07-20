@@ -8,6 +8,8 @@ import ProjectHeader from '../components/ProjectHeader';
 import Browser from '../components/Browser';
 import Mobile from '../components/Mobile';
 
+import css from '../resources/css/global.scss';
+
 export default class Products extends React.Component {
     static async getInitialProps({ req, query }) {
         return {

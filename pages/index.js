@@ -8,6 +8,8 @@ import Card from '../components/Card';
 import { Layout, LayoutAside, LayoutContent } from '../components/Layout';
 import ProjectGrid from '../components/ProjectGrid';
 
+import css from '../resources/css/global.scss';
+
 export default class Home extends React.Component {
     static async getInitialProps({ req, query }) {
         return {
