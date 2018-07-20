@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Aspect from '../Aspect';
+import Video from '../Video';
+import Image from '../Image';
 
 import css from './mobile.scss'
 
@@ -9,12 +11,12 @@ const Mobile = ({ mobile }) => (
         <div className={css.inner}>
             <Aspect modifiers="aspect-iphone6">
                 {mobile.fields.file.contentType === 'video/mp4' ? (
-                    <video autoPlay loop muted playsInline>
+                    <Video loop muted playsInline>
                         <source src={`https:${mobile.fields.file.url}`} type="video/mp4" />
-                    </video>
+                    </Video>
 
                 ) : (
-                    <img src={`https:${mobile.fields.file.url}?fm=webp`} alt="" className={css.image} />
+                    <Image src={`https:${mobile.fields.file.url}?fm=webp`} alt="" className={css.image} />
                 )}
             </Aspect>
         </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Aspect from '../Aspect';
+import Video from '../Video';
+import Image from '../Image';
 
 import css from './browser.scss'
 
@@ -10,12 +12,11 @@ const Browser = ({ desktop, name = '' }) => (
 
         <Aspect {...desktop.fields.file.details.image} modifiers={desktop.fields.file.contentType === 'video/mp4' ? 'aspect-1440x900' : ''}>
             {desktop.fields.file.contentType === 'video/mp4' ? (
-                <video autoPlay loop muted playsInline>
+                <Video loop muted playsInline>
                     <source src={`https:${desktop.fields.file.url}`} type={desktop.fields.file.contentType} />
-                </video>
-
+                </Video>
             ) : (
-                <img src={`https:${desktop.fields.file.url}?fm=webp`} alt="" className={css.image} />
+                <Image src={`https:${desktop.fields.file.url}?fm=webp`} alt="" className={css.image} />
             )}
         </Aspect>
     </div>

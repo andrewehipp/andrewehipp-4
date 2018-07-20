@@ -22,15 +22,14 @@ $spacing-unit:      20px;
 ///
 $color-config: (
     'body':         #333,
-    'primary':      #0131db,
-    'secondary':    #ff1c51,
     'green':        #69cd00,
     'red':          #e43700,
     'purple':       #870295,
-    'black':        #000,
+    'black':        #303933,
     'headings':     #00587d,
+    'primary':      #337ab7,
     'link':         #337ab7,
-    'grey':         #555,
+    'grey':         #666,
 );
 
 $gradient: linear-gradient(60deg, #69cd00 33%, #e43700 60%, #870295 100%);
