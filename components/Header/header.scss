@@ -1,0 +1,68 @@
+@import '../../resources/css/global/00-imports.scss';
+@import '../Container/container.scss';
+
+
+/* ------------------------------------ *\
+    #HEADER
+\* ------------------------------------ */
+
+.header {
+    overflow: hidden;
+    padding: $container-padding;
+    margin-bottom: spacer(1);
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    a {
+        color: inherit;
+
+        @include link-states() {
+            text-decoration: none;
+        }
+    }
+}
+
+.canvas {
+    left: 0;
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            100% calc(100% - 40px),
+            0 100%
+        );
+}
+
+.logo {
+    display: block;
+    margin-bottom: 0;
+    width: 40px;
+    height: auto;
+
+    @include media('sm') {
+        width: 64px;
+    }
+}
+
+.name {
+    @include rfz(24px, 30px);
+
+    margin-bottom: 0;
+}
+
+.role {
+    margin-bottom: 0;
+}
+
+.lockup {
+    display: flex;
+    align-items: center;
+}
+
+.lockupBlock {
+    margin-right: spacer(1);
+}

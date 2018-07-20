@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "modernizr": "modernizr -c modernizr-config.json -d ./static/js -u"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^0.2.0",
+    "classcat": "^3.1.2",
+    "contentful": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "modernizr": "^3.6.0",
+    "next": "^6.1.1",
+    "node-sass": "^4.9.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-markdown": "^3.3.4"
+  }
+}

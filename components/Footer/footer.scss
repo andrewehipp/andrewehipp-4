@@ -1,0 +1,16 @@
+@import '../../resources/css/global/00-imports.scss';
+@import '../Container/container.scss';
+
+
+/* ------------------------------------ *\
+    #FOOTER
+\* ------------------------------------ */
+
+.footer {
+    overflow: hidden;
+    padding: double($container-padding) $container-padding $container-padding;
+    color: darken(#fff, 20%);
+    background: color('black');
+    position: relative;
+    z-index: 0;
+}

@@ -1,0 +1,45 @@
+@import '../../resources/css/global/00-imports.scss';
+
+
+/* ------------------------------------ *\
+    #BUTTONS
+\* ------------------------------------ */
+
+// Basic button component optimized for `<a>`, `<input>`, `<button>` tags.
+.button {
+    display: inline-block;
+    padding: em(10px, $base-font-size) em(20px, $base-font-size);
+    border: 0;
+    background: #eee;
+    font-size: rem(16px);
+    color: color('link');
+    fill: currentColor;
+    font-size: $base-font-size;
+    line-height: 1;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: timer('fast');
+
+    @include link-states() {
+        background: darken(#eee, 10%);
+        text-decoration: none;
+    }
+}
+
+
+/**
+ * Modifiers for the buttons
+ */
+.primary {
+    background: color('primary');
+    color: #fff;
+
+    @include link-states() {
+        background: darken(color('primary'), 10%);
+    }
+}
+
+.big {
+    font-size: rem(20px);
+}
