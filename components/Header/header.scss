@@ -48,6 +48,11 @@
         100% calc(100% - 40px),
         0 100%
     );
+    width: 110%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    backface-visibility: hidden;
 }
 
 .content {

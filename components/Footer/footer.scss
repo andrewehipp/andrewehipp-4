@@ -33,7 +33,7 @@
 
 }
 
-.footerCanvas {
+.canvas {
     display: block;
     height: 150px;
     width: 100%;
@@ -43,6 +43,7 @@
         100% 100%,
         0 100%
     );
+    position: absolute;
     top: 0;
     right: 0;
     z-index: 1;
