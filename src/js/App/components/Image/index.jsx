@@ -19,7 +19,7 @@ export default class Image extends React.Component {
         this.image.current.style.opacity = '0';
         this.image.current.style.transition = `${transitions}, opacity 0.3s`;
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     this.image.current.src = this.props.src;

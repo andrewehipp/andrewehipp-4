@@ -4,7 +4,7 @@ import Aspect from '../Aspect';
 import Video from '../Video';
 import Image from '../Image';
 
-import css from './browser.scss'
+import css from './browser.scss';
 
 const Browser = ({ desktop, name = '' }) => (
     <div className={css.browser}>

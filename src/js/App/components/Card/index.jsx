@@ -5,7 +5,7 @@ import Image from '../Image';
 
 import css from './card.scss';
 
-const Card = ({ name, client, slug, smallThumbnail, fullThumbnail }) => (
+const Card = ({ name, client, slug, fullThumbnail }) => (
     <article id={slug} className={css.card}>
         <Aspect modifiers="aspect-16x9">
             <Image src={`https:${fullThumbnail.fields.file.url}?fm=webp`} alt="" className={css.cardImage} />

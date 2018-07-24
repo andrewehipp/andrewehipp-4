@@ -4,7 +4,7 @@ import Aspect from '../Aspect';
 import Video from '../Video';
 import Image from '../Image';
 
-import css from './mobile.scss'
+import css from './mobile.scss';
 
 const Mobile = ({ mobile }) => (
     <div className={css.mobile}>

@@ -1,5 +1,4 @@
 const Particle = function (width, height, index, count) {
-
     const numberInSeries = (index + 1) / count;
 
     this.canvasWidth = width;
@@ -13,11 +12,9 @@ const Particle = function (width, height, index, count) {
 
     this.size = Math.max(height * 2, 300);
     this.rotate = (360 * numberInSeries) * Math.random();
-
 };
 
 Particle.prototype.update = function () {
-
     this.x = this.x + this.dx;
     // this.y = this.y + this.dy;
 
@@ -38,11 +35,9 @@ Particle.prototype.update = function () {
     if (this.y < -this.size) {
         this.y = this.canvasHeight + this.size;
     }
-
 };
 
 Particle.prototype.draw = function (ctx) {
-
     const halfSize = this.size / 2;
 
     ctx.save();
@@ -57,12 +52,10 @@ Particle.prototype.draw = function (ctx) {
     ctx.closePath();
     ctx.stroke();
     ctx.restore();
-
 };
 
 
 const ParticleEffect = function (selector) {
-
     this.canvas = selector;
 
     this.particles = [];
@@ -81,39 +74,33 @@ const ParticleEffect = function (selector) {
     this.ctx.strokeStyle = '#fff';
     this.ctx.globalAlpha = (Math.random() * 0.2) + 0.1;
 
+    // eslint-disable-next-line
     for (let i = 0; i < this.count; i++) {
         this.particles.push(new Particle(this.width, this.height, i, this.count));
     }
 
     this.loop();
-
 };
 
 ParticleEffect.prototype.draw = function () {
-
     this.ctx.clearRect(0, 0, this.width, this.height);
 
     this.particles.forEach((particle) => {
         particle.draw(this.ctx);
     });
-
 };
 
 ParticleEffect.prototype.update = function () {
-
     this.particles.forEach((particle) => {
         particle.update();
     });
-
 };
 
 ParticleEffect.prototype.loop = function () {
-
     this.draw();
     this.update();
 
     window.requestAnimationFrame(this.loop.bind(this));
-
 };
 
 export default ParticleEffect;

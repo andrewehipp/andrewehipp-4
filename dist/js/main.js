@@ -3454,7 +3454,7 @@ var Image = function (_React$Component) {
             this.image.current.style.opacity = '0';
             this.image.current.style.transition = transitions + ', opacity 0.3s';
 
-            var observer = new IntersectionObserver(function (entries, observer) {
+            var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         _this2.image.current.src = _this2.props.src;
@@ -5517,7 +5517,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var options = {
     root: null,
-    rootMargin: "0px",
+    rootMargin: '0px',
     threshold: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1]
 };
 
@@ -5534,9 +5534,9 @@ var Video = function (_React$Component) {
     }
 
     _createClass(Video, [{
-        key: "componentDidMount",
+        key: 'componentDidMount',
         value: function componentDidMount() {
-            var observer = new IntersectionObserver(function (entries, observer) {
+            var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         entry.target.play();
@@ -5546,19 +5546,23 @@ var Video = function (_React$Component) {
                     }
                 });
             }, options);
+
             observer.observe(this.video.current);
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             var _props = this.props,
                 children = _props.children,
-                props = _objectWithoutProperties(_props, ["children"]);
+                props = _objectWithoutProperties(_props, ['children']);
 
-            return _react2.default.createElement(
-                "video",
-                _extends({}, props, { ref: this.video }),
-                children
+            return (
+                // eslint-disable-next-line
+                _react2.default.createElement(
+                    'video',
+                    _extends({}, props, { ref: this.video }),
+                    children
+                )
             );
         }
     }]);
@@ -5656,6 +5660,7 @@ var Canvas = function (_React$Component) {
     _createClass(Canvas, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
+            // eslint-disable-next-line
             new _ParticleEffect2.default(this.canvas.current);
         }
     }, {
@@ -33167,7 +33172,6 @@ var Card = function Card(_ref) {
     var name = _ref.name,
         client = _ref.client,
         slug = _ref.slug,
-        smallThumbnail = _ref.smallThumbnail,
         fullThumbnail = _ref.fullThumbnail;
     return _react2.default.createElement(
         'article',
@@ -40945,7 +40949,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var Particle = function Particle(width, height, index, count) {
-
     var numberInSeries = (index + 1) / count;
 
     this.canvasWidth = width;
@@ -40962,7 +40965,6 @@ var Particle = function Particle(width, height, index, count) {
 };
 
 Particle.prototype.update = function () {
-
     this.x = this.x + this.dx;
     // this.y = this.y + this.dy;
 
@@ -40986,7 +40988,6 @@ Particle.prototype.update = function () {
 };
 
 Particle.prototype.draw = function (ctx) {
-
     var halfSize = this.size / 2;
 
     ctx.save();
@@ -41004,7 +41005,6 @@ Particle.prototype.draw = function (ctx) {
 };
 
 var ParticleEffect = function ParticleEffect(selector) {
-
     this.canvas = selector;
 
     this.particles = [];
@@ -41023,6 +41023,7 @@ var ParticleEffect = function ParticleEffect(selector) {
     this.ctx.strokeStyle = '#fff';
     this.ctx.globalAlpha = Math.random() * 0.2 + 0.1;
 
+    // eslint-disable-next-line
     for (var i = 0; i < this.count; i++) {
         this.particles.push(new Particle(this.width, this.height, i, this.count));
     }
@@ -41041,14 +41042,12 @@ ParticleEffect.prototype.draw = function () {
 };
 
 ParticleEffect.prototype.update = function () {
-
     this.particles.forEach(function (particle) {
         particle.update();
     });
 };
 
 ParticleEffect.prototype.loop = function () {
-
     this.draw();
     this.update();
 

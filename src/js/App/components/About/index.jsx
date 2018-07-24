@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './about.scss'
+import css from './about.scss';
 
 const About = () => (
     <div>

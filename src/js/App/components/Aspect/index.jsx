@@ -11,7 +11,7 @@ const Aspect = ({ children, modifiers = '', className, width, height, ...props }
     ]);
 
     const styles = width && height && ({
-        paddingTop: `${height / width * 100}%`,
+        paddingTop: `${(height / width) * 100}%`,
     });
 
     return (
