@@ -7,6 +7,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 
 const project = require('./package.json').project;
@@ -148,8 +149,15 @@ module.exports = {
         // Duplicate 404 for netlify
         new HtmlWebpackPlugin({
             filename: '404.html',
-            template: 'index.html',
+            template: 'templates/index.html',
         }),
+
+        new CopyWebpackPlugin([
+            {
+                from: 'src/img',
+                to: 'img',
+            },
+        ]),
 
     ],
     optimization: {
