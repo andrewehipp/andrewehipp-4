@@ -146,10 +146,10 @@ module.exports = {
             template: 'templates/index.html',
         }),
         // Duplicate 404 for netlify
-        // new HtmlWebpackPlugin({
-        //     filename: '404.html',
-        //     template: 'index.html',
-        // }),
+        new HtmlWebpackPlugin({
+            filename: '404.html',
+            template: 'index.html',
+        }),
 
     ],
     optimization: {
