@@ -19,10 +19,12 @@ export default class Appear extends React.Component {
 
         Promise.all(imagePromises)
             .then(() => {
-                window.requestAnimationFrame(() => {
-                    this.element.current.style.transform = '';
-                    this.element.current.style.opacity = '';
-                });
+                window.setTimeout(() => {
+                    window.requestAnimationFrame(() => {
+                        this.element.current.style.transform = '';
+                        this.element.current.style.opacity = '';
+                    });
+                }, this.props.delay || 0);
             });
     }
 

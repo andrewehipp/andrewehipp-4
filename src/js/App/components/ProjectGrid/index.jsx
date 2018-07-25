@@ -17,7 +17,7 @@ const ProjectGrid = ({ children, layout = [] }) => (
 
             return (
                 <li className={classes}>
-                    <Appear>
+                    <Appear delay={50 * childIndex}>
                         {child}
                     </Appear>
                 </li>
