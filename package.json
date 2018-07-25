@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && cp index.html 404.html",
-    "watch": "webpack --watch"
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development"
   },
   "author": "Andrew Hipp",
   "license": "ISC",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "autoprefixer": "^7.1.2",
-    "babel-core": "^6.25.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -43,21 +43,26 @@
     "contentful": "^6.1.1",
     "css-loader": "^0.28.4",
     "cssnano": "^3.10.0",
-    "eslint": "^4.3.0",
+    "eslint": "^5.2.0",
     "eslint-config-airbnb": "^15.1.0",
-    "eslint-loader": "^1.9.0",
+    "eslint-loader": "^2.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "7.4.0",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "gulp": "^3.9.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.5.3",
     "normalize.css": "^7.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
     "postcss-loader": "^2.0.6",
+    "prerender-loader": "^1.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
+    "react-loadable": "^5.4.0",
     "react-markdown": "^3.3.4",
     "react-router-dom": "^4.3.1",
     "sass-loader": "^6.0.6",
@@ -65,8 +70,12 @@
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-scss": "^1.5.1",
-    "stylelint-webpack-plugin": "^0.9.0",
-    "webpack": "^3.4.1",
-    "webpack-stream": "^3.2.0"
+    "stylelint-webpack-plugin": "^0.10.5",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.16.2",
+    "webpack-stream": "^5.0.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.0"
   }
 }

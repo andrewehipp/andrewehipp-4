@@ -1,21 +1,23 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
 const project = require('./package.json').project;
 
 
 module.exports = {
-    entry: {
-        'js/main': `${project.src.js}/main.js`,
-    },
+    entry: `${project.src.js}/main.js`,
     output: {
-        filename: '[name].js',
+        filename: 'js/[name].js',
         path: path.resolve(__dirname, 'dist'),
+        publicPath: path.resolve(__dirname, '/'),
     },
     module: {
         rules: [
@@ -40,9 +42,6 @@ module.exports = {
                     },
                     {
                         loader: 'eslint-loader',
-                        // options: {
-                        //     fix: true,
-                        // },
                     },
                 ],
             },
@@ -62,38 +61,46 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 exclude: /(node_modules|bower_components)/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true,
-                                // Minifcation via cssnano http://cssnano.co/guides/
-                                // minimize: true,
-                                // Ignore urls in stylesheets
-                                url: false,
-                                modules: true,
-                            },
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        // options: {
+                        //   // you can specify a publicPath here
+                        //   // by default it use publicPath in webpackOptions.output
+                        //   publicPath: '../'
+                        // }
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            // Minifcation via cssnano http://cssnano.co/guides/
+                            // minimize: true,
+                            // Ignore urls in stylesheets
+                            url: false,
+                            modules: true,
                         },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: () => [
-                                    autoprefixer(),
-                                ],
-                                sourceMap: true,
-                            },
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [
+                                autoprefixer(),
+                            ],
                         },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: true,
-                            },
-                        },
-                    ],
-                }),
+                    },
+                    {
+                        loader: 'sass-loader',
+                    },
+                ],
             },
+            // {
+            //     test: /\.html$/,
+            //     use: [
+            //         {
+            //             loader: 'prerender-loader?string',
+            //         },
+            //     ],
+            // },
         ],
     },
     resolve: {
@@ -108,7 +115,7 @@ module.exports = {
 
         // Sass through webpack. Requires `import style from '../scss/global.scss'`
         // in the main bundle.
-        new ExtractTextPlugin({
+        new MiniCssExtractPlugin({
             filename: 'css/global.css',
         }),
 
@@ -130,11 +137,29 @@ module.exports = {
             ghostMode: false,
             host: 'localhost',
             server: {
-                baseDir: './',
+                baseDir: './dist/',
             },
             port: 8000,
         }),
 
+        new HtmlWebpackPlugin({
+            template: 'templates/index.html',
+        }),
+        // Duplicate 404 for netlify
+        // new HtmlWebpackPlugin({
+        //     filename: '404.html',
+        //     template: 'index.html',
+        // }),
+
     ],
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+            }),
+            new OptimizeCSSAssetsPlugin({}),
+        ],
+    },
     devtool: 'source-map',
 };

@@ -16,7 +16,7 @@ const Browser = ({ desktop, name = '' }) => (
                     <source src={`https:${desktop.fields.file.url}`} type={desktop.fields.file.contentType} />
                 </Video>
             ) : (
-                <Image src={`https:${desktop.fields.file.url}?fm=webp`} alt="" className={css.image} />
+                <Image src={`https:${desktop.fields.file.url}?fm=webp&w=800`} alt="" className={css.image} />
             )}
         </Aspect>
     </div>

@@ -16,7 +16,7 @@ const Mobile = ({ mobile }) => (
                     </Video>
 
                 ) : (
-                    <Image src={`https:${mobile.fields.file.url}?fm=webp`} alt="" className={css.image} />
+                    <Image src={`https:${mobile.fields.file.url}?fm=webp&w=210`} alt="" className={css.image} />
                 )}
             </Aspect>
         </div>
