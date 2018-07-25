@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Container from '../Container';
 import Canvas from '../Canvas';
@@ -18,6 +19,8 @@ const Footer = () => (
                 </p>
 
                 <p><small>&copy; Andrew Hipp {new Date().getFullYear()}</small></p>
+
+                <p><Link to="/archive">Archive</Link></p>
             </Layer>
         </Container>
     </footer>

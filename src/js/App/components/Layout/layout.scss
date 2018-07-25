@@ -39,17 +39,14 @@
 }
 
 .bleedBottom {
-    margin-bottom: -110px;
+    margin-bottom: -75px;
 }
 
 .aside {
     @include media('sm') {
+        margin-top: 50px;
         position: relative;
     }
-}
-
-.asideOffset {
-    margin-top: 50px;
 }
 
 

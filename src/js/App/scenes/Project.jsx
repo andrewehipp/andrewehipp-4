@@ -6,6 +6,7 @@ import Layer from '../components/Layer';
 import ProjectHeader from '../components/ProjectHeader';
 import Browser from '../components/Browser';
 import Mobile from '../components/Mobile';
+import Appear from '../components/Appear';
 
 import client from '../client';
 
@@ -38,18 +39,20 @@ export default class Project extends React.Component {
             <Layer>
                 {this.state.project.screenshots.map((screenshot, screenshotIndex) => (
                     <Layout key={screenshot.sys.id}>
-                        <LayoutAside offset={screenshotIndex === 0}>
+                        <LayoutAside>
                             {screenshotIndex === 0 && (
                                 <ProjectHeader {...this.state.project} />
                             )}
                             <ReactMarkdown source={screenshot.fields.description} />
                         </LayoutAside>
                         <LayoutContent bleedTop={screenshotIndex === 0} bleedBottom={screenshotIndex === this.state.project.screenshots.length - 1}>
-                            <Browser {...screenshot.fields} />
+                            <Appear>
+                                <Browser {...screenshot.fields} />
 
-                            {screenshot.fields.mobile && (
-                                <Mobile {...screenshot.fields} />
-                            )}
+                                {screenshot.fields.mobile && (
+                                    <Mobile {...screenshot.fields} />
+                                )}
+                            </Appear>
                         </LayoutContent>
                     </Layout>
                 ))}

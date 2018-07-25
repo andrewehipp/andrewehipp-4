@@ -11,17 +11,19 @@ export default class Image extends React.Component {
         super();
 
         this.image = React.createRef();
-        this.onLoad = this.onLoad.bind(this);
+        this.state = {
+            inView: false,
+        };
     }
 
     componentDidMount() {
-        const transitions = window.getComputedStyle(this.image.current).transition;
-        this.image.current.style.transition = `${transitions}, opacity 0.3s`;
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    this.image.current.src = this.props.src;
+                    this.setState({
+                        inView: true,
+                    });
+
                     observer.unobserve(this.image.current);
                 }
             });
@@ -30,15 +32,9 @@ export default class Image extends React.Component {
         observer.observe(this.image.current);
     }
 
-    onLoad() {
-        window.requestAnimationFrame(() => {
-            this.image.current.style.opacity = '1';
-        });
-    }
-
     render() {
         const {
-            src,
+            src = '',
             alt = '',
             ...props
         } = this.props;
@@ -47,8 +43,8 @@ export default class Image extends React.Component {
 
         return (
             <picture>
-                <source srcSet={`${src}${query}fm=webp`} type="image/webp" />
-                <img ref={this.image} src={src} alt={alt} {...props} onLoad={this.onLoad} style={{ opacity: 0 }} />
+                <source srcSet={!this.state.inView ? '' : `${src}${query}fm=webp`} type="image/webp" />
+                <img ref={this.image} src={!this.state.inView ? '' : src} alt={alt} {...props} />
             </picture>
         );
     }

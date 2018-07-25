@@ -15,11 +15,17 @@ const Project = Loadable({
     loading: Loader,
 });
 
+const Archive = Loadable({
+    loader: () => import(/* webpackChunkName: "scenes/Archive" */ '../../scenes/Archive'),
+    loading: Loader,
+});
+
 const App = () => (
     <BrowserRouter>
         <DocumentDefault>
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/archive" component={Archive} />
                 <Route exact path="/projects/:slug" component={Project} />
             </Switch>
         </DocumentDefault>
