@@ -5,23 +5,8 @@
 node_modules
 npm-debug.log
 
-
-# Sublime project files
-*.sublime-project
-*.sublime-workspace
-
-# IntelliJ IDEA project files
-.idea
-
-# Bower
-bower_components
-
-# SassDoc
-sassdoc
+dist
 
 # Ignore temporary files BrowserSync makes.
 css/_*
 js/_*
-
-# Ignore jsDoc.
-js/out
