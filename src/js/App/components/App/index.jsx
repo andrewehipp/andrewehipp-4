@@ -6,12 +6,12 @@ import DocumentDefault from '../DocumentDefault';
 import Loader from '../Loader';
 
 const Home = Loadable({
-    loader: () => import('../../scenes/Home'),
+    loader: () => import(/* webpackChunkName: "scenes/Home" */ '../../scenes/Home'),
     loading: Loader,
 });
 
 const Project = Loadable({
-    loader: () => import('../../scenes/Project'),
+    loader: () => import(/* webpackChunkName: "scenes/Project" */ '../../scenes/Project'),
     loading: Loader,
 });
 

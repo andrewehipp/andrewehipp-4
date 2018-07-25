@@ -7,12 +7,14 @@ import Card from '../components/Card';
 import { Layout, LayoutAside, LayoutContent } from '../components/Layout';
 import ProjectGrid from '../components/ProjectGrid';
 
-function compare(a,b) {
-  if (a.order < b.order)
-    return -1;
-  if (a.order > b.order)
-    return 1;
-  return 0;
+function compare(a, b) {
+    if (a.order < b.order) {
+        return -1;
+    }
+    if (a.order > b.order) {
+        return 1;
+    }
+    return 0;
 }
 
 export default class Home extends React.Component {
