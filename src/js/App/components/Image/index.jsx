@@ -16,7 +16,6 @@ export default class Image extends React.Component {
 
     componentDidMount() {
         const transitions = window.getComputedStyle(this.image.current).transition;
-        this.image.current.style.opacity = '0';
         this.image.current.style.transition = `${transitions}, opacity 0.3s`;
 
         const observer = new IntersectionObserver((entries) => {
@@ -32,7 +31,9 @@ export default class Image extends React.Component {
     }
 
     onLoad() {
-        this.image.current.style.opacity = '1';
+        window.requestAnimationFrame(() => {
+            this.image.current.style.opacity = '1';
+        });
     }
 
     render() {
@@ -42,8 +43,13 @@ export default class Image extends React.Component {
             ...props
         } = this.props;
 
+        const query = src.indexOf('?') !== -1 ? '&' : '?';
+
         return (
-            <img ref={this.image} src="" alt={alt} {...props} onLoad={this.onLoad} />
+            <picture>
+                <source srcSet={`${src}${query}fm=webp`} type="image/webp" />
+                <img ref={this.image} src={src} alt={alt} {...props} onLoad={this.onLoad} style={{ opacity: 0 }} />
+            </picture>
         );
     }
 }

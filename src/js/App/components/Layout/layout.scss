@@ -34,10 +34,22 @@
     position: relative;
 }
 
+.bleedTop {
+    margin-top: -130px;
+}
+
+.bleedBottom {
+    margin-bottom: -110px;
+}
+
 .aside {
     @include media('sm') {
         position: relative;
     }
+}
+
+.asideOffset {
+    margin-top: 50px;
 }
 
 

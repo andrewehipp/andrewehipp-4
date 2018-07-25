@@ -2,6 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import { Layout, LayoutAside, LayoutContent } from '../components/Layout';
+import Layer from '../components/Layer';
 import ProjectHeader from '../components/ProjectHeader';
 import Browser from '../components/Browser';
 import Mobile from '../components/Mobile';
@@ -34,16 +35,16 @@ export default class Project extends React.Component {
         console.log(this.state.project);
         if (!this.state.project) { return null; }
         return (
-            <React.Fragment>
+            <Layer>
                 {this.state.project.screenshots.map((screenshot, screenshotIndex) => (
                     <Layout key={screenshot.sys.id}>
-                        <LayoutAside>
+                        <LayoutAside offset={screenshotIndex === 0}>
                             {screenshotIndex === 0 && (
                                 <ProjectHeader {...this.state.project} />
                             )}
                             <ReactMarkdown source={screenshot.fields.description} />
                         </LayoutAside>
-                        <LayoutContent>
+                        <LayoutContent bleedTop={screenshotIndex === 0} bleedBottom={screenshotIndex === this.state.project.screenshots.length - 1}>
                             <Browser {...screenshot.fields} />
 
                             {screenshot.fields.mobile && (
@@ -53,7 +54,7 @@ export default class Project extends React.Component {
                     </Layout>
                 ))}
                 {/* <pre>{JSON.stringify(query.projects, 4, 4)}</pre> */}
-            </React.Fragment>
+            </Layer>
         );
     }
 }

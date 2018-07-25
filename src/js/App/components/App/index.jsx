@@ -7,12 +7,12 @@ import Loader from '../Loader';
 
 const Home = Loadable({
     loader: () => import('../../scenes/Home'),
-    loading: () => Loader,
+    loading: Loader,
 });
 
 const Project = Loadable({
     loader: () => import('../../scenes/Project'),
-    loading: () => Loader,
+    loading: Loader,
 });
 
 const App = () => (
