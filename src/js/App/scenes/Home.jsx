@@ -6,6 +6,7 @@ import About from '../components/About';
 import Card from '../components/Card';
 import { Layout, LayoutAside, LayoutContent } from '../components/Layout';
 import ProjectGrid from '../components/ProjectGrid';
+import Appear from '../components/Appear';
 
 const layout = [
     0,
@@ -51,7 +52,9 @@ export default class Home extends React.Component {
         return (
             <Layout>
                 <LayoutAside>
-                    <About />
+                    <Appear>
+                        <About />
+                    </Appear>
                 </LayoutAside>
                 <LayoutContent bleedTop bleedBottom>
                     <ProjectGrid layout={layout}>

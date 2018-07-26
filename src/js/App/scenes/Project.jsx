@@ -33,17 +33,19 @@ export default class Project extends React.Component {
     }
 
     render() {
-        console.log(this.state.project);
         if (!this.state.project) { return null; }
+
         return (
             <Layer>
                 {this.state.project.screenshots.map((screenshot, screenshotIndex) => (
                     <Layout key={screenshot.sys.id}>
                         <LayoutAside>
-                            {screenshotIndex === 0 && (
-                                <ProjectHeader {...this.state.project} />
-                            )}
-                            <ReactMarkdown source={screenshot.fields.description} />
+                            <Appear>
+                                {screenshotIndex === 0 && (
+                                    <ProjectHeader {...this.state.project} />
+                                )}
+                                <ReactMarkdown source={screenshot.fields.description} />
+                            </Appear>
                         </LayoutAside>
                         <LayoutContent bleedTop={screenshotIndex === 0} bleedBottom={screenshotIndex === this.state.project.screenshots.length - 1}>
                             <Appear>

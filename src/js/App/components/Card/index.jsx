@@ -36,7 +36,7 @@ export default class Card extends React.Component {
         return (
             <article ref={this.card} id={slug} className={css.card} style={{ opacity: 0, transform: 'translateY(20px)' }}>
                 <Aspect modifiers="aspect-16x9">
-                    <Image src={`https:${fullThumbnail.fields.file.url}?w=530&h=299`} alt="" className={css.cardImage} onLoad={this.onLoad} />
+                    <Image src={`https:${fullThumbnail.fields.file.url}?w=530`} alt="" className={css.cardImage} onLoad={this.onLoad} />
                 </Aspect>
                 <header className={css.cardHeader}>
                     <h3 className={css.cardTitle}>{name}</h3>
