@@ -13,8 +13,8 @@ export default class Canvas extends React.Component {
     }
 
     componentDidMount() {
-        // eslint-disable-next-line
         if (window) {
+            // eslint-disable-next-line
             new ParticleEffect(this.canvas.current);
         }
     }
