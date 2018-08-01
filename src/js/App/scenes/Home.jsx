@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import client from '../client';
 
+import Layer from '../components/Layer';
 import About from '../components/About';
 import Card from '../components/Card';
 import { Layout, LayoutAside, LayoutContent } from '../components/Layout';
@@ -57,13 +58,15 @@ export default class Home extends React.Component {
                     </Appear>
                 </LayoutAside>
                 <LayoutContent bleedTop bleedBottom>
-                    <ProjectGrid layout={layout}>
-                        {this.state.projects.map(project => (
-                            <Link key={project.slug} to={`/projects/${project.slug}`}>
-                                <Card {...project} />
-                            </Link>
-                        ))}
-                    </ProjectGrid>
+                    <Layer>
+                        <ProjectGrid layout={layout}>
+                            {this.state.projects.map(project => (
+                                <Link key={project.slug} to={`/projects/${project.slug}`}>
+                                    <Card {...project} />
+                                </Link>
+                            ))}
+                        </ProjectGrid>
+                    </Layer>
                 </LayoutContent>
             </Layout>
         );

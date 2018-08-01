@@ -35,7 +35,9 @@
 }
 
 .bleedTop {
-    margin-top: -130px;
+    @include media('sm') {
+        margin-top: -130px;
+    }
 }
 
 .bleedBottom {

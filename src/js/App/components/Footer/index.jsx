@@ -19,8 +19,6 @@ const Footer = () => (
                 </p>
 
                 <p><small>&copy; Andrew Hipp {new Date().getFullYear()}</small></p>
-
-                <p><Link to="/archive">Archive</Link></p>
             </Layer>
         </Container>
     </footer>
