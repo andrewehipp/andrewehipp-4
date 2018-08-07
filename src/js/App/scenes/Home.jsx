@@ -16,16 +16,6 @@ const layout = [
     12,
 ];
 
-function compare(a, b) {
-    if (a.order < b.order) {
-        return -1;
-    }
-    if (a.order > b.order) {
-        return 1;
-    }
-    return 0;
-}
-
 export default class Home extends React.Component {
     constructor() {
         super();
@@ -37,11 +27,11 @@ export default class Home extends React.Component {
 
     componentDidMount() {
         client.getEntries({
-            content_type: 'project',
-            'fields.featured[in]': true,
+            content_type: 'projectListing',
+            'fields.name[in]': 'Home',
         })
-            .then(projects => projects.items.map(project => project.fields))
-            .then(projects => projects.sort(compare))
+            .then(res => res.items[0].fields.projects)
+            .then(res => res.map(item => item.fields))
             .then((projects) => {
                 this.setState({
                     projects,
