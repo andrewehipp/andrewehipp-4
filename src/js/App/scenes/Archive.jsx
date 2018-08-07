@@ -34,6 +34,8 @@ export default class Home extends React.Component {
             <Layout>
                 <LayoutAside>
                     <h1>Archive</h1>
+
+                    <p>All projects ever featured in my portfolio in no particular order.</p>
                 </LayoutAside>
                 <LayoutContent bleedTop bleedBottom>
                     <Layer>

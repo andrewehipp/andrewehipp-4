@@ -44,6 +44,7 @@ export default class Project extends React.Component {
                                 {screenshotIndex === 0 && (
                                     <ProjectHeader {...this.state.project} />
                                 )}
+                                <ReactMarkdown source={this.state.project.description} />
                                 <ReactMarkdown source={screenshot.fields.description} />
                             </Appear>
                         </LayoutAside>
