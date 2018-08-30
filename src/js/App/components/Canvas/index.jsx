@@ -1,5 +1,6 @@
 import React from 'react';
 import cc from 'classcat';
+import scrollMonitor from 'scrollmonitor';
 
 import css from './canvas.scss';
 import ParticleEffect from './ParticleEffect';
@@ -14,8 +15,17 @@ export default class Canvas extends React.Component {
 
     componentDidMount() {
         if (window) {
-            // eslint-disable-next-line
-            new ParticleEffect(this.canvas.current);
+            this.effect = new ParticleEffect(this.canvas.current);
+
+            this.elementWatcher = scrollMonitor.create(this.canvas.current);
+
+            this.elementWatcher.enterViewport(() => {
+                this.effect.play();
+            });
+
+            this.elementWatcher.exitViewport(() => {
+                this.effect.pause();
+            });
         }
     }
 

@@ -78,8 +78,6 @@ const ParticleEffect = function (selector) {
     for (let i = 0; i < this.count; i++) {
         this.particles.push(new Particle(this.width, this.height, i, this.count));
     }
-
-    this.loop();
 };
 
 ParticleEffect.prototype.draw = function () {
@@ -100,7 +98,15 @@ ParticleEffect.prototype.loop = function () {
     this.draw();
     this.update();
 
-    window.requestAnimationFrame(this.loop.bind(this));
+    this.raf = window.requestAnimationFrame(this.loop.bind(this));
+};
+
+ParticleEffect.prototype.pause = function () {
+    window.cancelAnimationFrame(this.raf);
+};
+
+ParticleEffect.prototype.play = function () {
+    this.loop();
 };
 
 export default ParticleEffect;

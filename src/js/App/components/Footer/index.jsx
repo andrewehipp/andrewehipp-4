@@ -14,8 +14,10 @@ const Footer = () => (
             <Layer>
                 <p>
                     Need to improve your web presence or an employer looking to hire?<br />
-                    <a href="mailto:andrewehipp@gmail.com?subject=Website referal">Please get in touch</a>.
+                    <a href="mailto:andrewehipp@gmail.com?subject=Referral from andrewehipp.com">Please get in touch</a>.
                 </p>
+
+                <p><small>Built with React, Netlify, and Contentful.</small></p>
 
                 <p><small>&copy; Andrew Hipp {new Date().getFullYear()}</small></p>
             </Layer>

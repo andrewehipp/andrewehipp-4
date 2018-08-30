@@ -18,13 +18,17 @@ export default class Image extends React.Component {
             this.setState({
                 inView: true,
             });
+
+            this.componentWillUnmount();
         });
 
         this.elementWatcher.triggerCallbacks();
     }
 
     componentWillUnmount() {
-        this.elementWatcher.destroy();
+        if (this.elementWatcher.destroy) {
+            this.elementWatcher.destroy();
+        }
     }
 
     render() {

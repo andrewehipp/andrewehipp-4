@@ -10,11 +10,11 @@ export default class Video extends React.Component {
     componentDidMount() {
         this.elementWatcher = scrollMonitor.create(this.video.current);
 
-        this.elementWatcher.enterViewport(() => {
+        this.elementWatcher.fullyEnterViewport(() => {
             this.video.current.play();
         });
 
-        this.elementWatcher.partiallyExitViewport(() => {
+        this.elementWatcher.exitViewport(() => {
             this.video.current.pause();
             this.video.current.currentTime = 0;
         });

@@ -6,7 +6,6 @@ import Layer from '../components/Layer';
 import ProjectHeader from '../components/ProjectHeader';
 import Browser from '../components/Browser';
 import Mobile from '../components/Mobile';
-import Appear from '../components/Appear';
 
 import client from '../client';
 
@@ -40,22 +39,18 @@ export default class Project extends React.Component {
                 {this.state.project.screenshots.map((screenshot, screenshotIndex) => (
                     <Layout key={screenshot.sys.id}>
                         <LayoutAside>
-                            <Appear>
-                                {screenshotIndex === 0 && (
-                                    <ProjectHeader {...this.state.project} />
-                                )}
-                                <ReactMarkdown source={this.state.project.description} />
-                                <ReactMarkdown source={screenshot.fields.description} />
-                            </Appear>
+                            {screenshotIndex === 0 && (
+                                <ProjectHeader {...this.state.project} />
+                            )}
+                            <ReactMarkdown source={this.state.project.description} />
+                            <ReactMarkdown source={screenshot.fields.description} />
                         </LayoutAside>
                         <LayoutContent bleedTop={screenshotIndex === 0} bleedBottom={screenshotIndex === this.state.project.screenshots.length - 1}>
-                            <Appear>
-                                <Browser {...screenshot.fields} />
+                            <Browser {...screenshot.fields} />
 
-                                {screenshot.fields.mobile && (
-                                    <Mobile {...screenshot.fields} />
-                                )}
-                            </Appear>
+                            {screenshot.fields.mobile && (
+                                <Mobile {...screenshot.fields} />
+                            )}
                         </LayoutContent>
                     </Layout>
                 ))}
