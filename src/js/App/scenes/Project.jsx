@@ -42,7 +42,9 @@ export default class Project extends React.Component {
                             {screenshotIndex === 0 && (
                                 <ProjectHeader {...this.state.project} />
                             )}
-                            <ReactMarkdown source={this.state.project.description} />
+                            {screenshotIndex === 0 && (
+                                <ReactMarkdown source={this.state.project.description} />
+                            )}
                             <ReactMarkdown source={screenshot.fields.description} />
                         </LayoutAside>
                         <LayoutContent bleedTop={screenshotIndex === 0} bleedBottom={screenshotIndex === this.state.project.screenshots.length - 1}>
