@@ -5,13 +5,15 @@ import Appear from '../Appear';
 
 import css from './project-grid.scss';
 
-const ProjectGrid = ({ children, layout = [] }) => (
+const ProjectGrid = ({ children, layout = {} }) => (
     <ul className={css.projectGrid}>
         {React.Children.map(children, (child, childIndex) => {
+            const layoutConfig = layout[childIndex] || {};
             const classes = cc([
                 css.item,
                 {
-                    [css.wide]: layout.indexOf(childIndex) !== -1,
+                    [css.wide]: layoutConfig.wide,
+                    [css.alignBottom]: layoutConfig.align === 'bottom',
                 },
             ]);
 

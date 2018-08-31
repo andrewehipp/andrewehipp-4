@@ -9,12 +9,20 @@ import { Layout, LayoutAside, LayoutContent } from '../components/Layout';
 import ProjectGrid from '../components/ProjectGrid';
 import Appear from '../components/Appear';
 
-const layout = [
-    0,
-    6,
-    7,
-    12,
-];
+// const layout = [
+//     0,
+//     6,
+//     7,
+//     13,
+// ];
+
+const layout = {
+    0: { wide: true },
+    1: { align: 'bottom' },
+    6: { wide: true },
+    7: { wide: true },
+    13: { wide: true },
+};
 
 export default class Home extends React.Component {
     constructor() {
