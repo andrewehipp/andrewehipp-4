@@ -1,25 +1,29 @@
-# Starter 2
+[![Netlify Status](https://api.netlify.com/api/v1/badges/093a992e-3951-47d5-bf32-5831f866c5e0/deploy-status)](https://app.netlify.com/sites/andrewehipp/deploys)
 
+# PROJECT NAME
 
-# Running
+Personal Portfolio for me, Andrew Hipp.
 
-To run use `npm run build` or `npm run watch`. If you prefer gulp you can use `gulp` and `gulp watch` instead. Developers can copy this workflow into `rg-harbinger-starter-2`.
+URLS:
 
-# Dist
+- Local: http://localhost:8000/
+- Staging: none
+- Production: https://andrewehipp.com
 
-Assets used by the site.
-
-### Images
-
-The project's images directory has several starting folders based on common uses. Alter the folder structure at any time to provide better project organization.
-
-* `content`: Editorial or content images. Not part of the styling or theming of the site.
-* `global`: Images `global.css` uses or relies on.
-* `meta`: Images used by the site's meta tags or sharing.
+# Whats in the box
+- ReactJS
 
 # Dependencies
 
-* [Yarn](https://yarnpkg.com/en/): This project uses [yarn](https://yarnpkg.com/en/) instead of `npm` for dependencies management.
-* [Webpack 3+](https://webpack.js.org/)
-* [Gulp](https://gulpjs.com/): Optional but helpful on some frameworks that come with gulp as part of their development platform.
-* [Browsersync](https://browsersync.io/docs/gulp)
+* [React.js](https://reactjs.org/)
+* [Webpack 4+](https://webpack.js.org/)
+
+# Local Setup
+
+- clone this repo
+- `yarn`
+- `yarn watch`
+
+# Deployments
+
+Deployments are handled by Github and Netlify
