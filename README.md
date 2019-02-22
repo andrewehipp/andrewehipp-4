@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/093a992e-3951-47d5-bf32-5831f866c5e0/deploy-status)](https://app.netlify.com/sites/andrewehipp/deploys)
 
-# PROJECT NAME
+# Andrew Hipp Portfolio
 
 Personal Portfolio for me, Andrew Hipp.
 
