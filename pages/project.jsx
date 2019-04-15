@@ -3,11 +3,10 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import Head from 'next/head';
 
-import { Layout, LayoutAside, LayoutContent } from '../components/Layout';
+import Layout from '../components/Layout';
 import Layer from '../components/Layer';
 import ProjectHeader from '../components/ProjectHeader';
-import Browser from '../components/Browser';
-import Mobile from '../components/Mobile';
+import ScreenShot from '../components/ScreenShot';
 
 import client from '../client';
 
@@ -34,31 +33,28 @@ const Project = ({
                 } = {},
                 fields: screenshotFields,
                 fields: {
-                    mobile: screenshotMobile,
                     description: screenshotDescription,
                 } = {},
             }, screenshotIndex) => (
-                <Layout key={screenshotId}>
-                    <LayoutAside>
-                        {screenshotIndex === 0 && (
-                            <ProjectHeader {...project} />
-                        )}
-                        {screenshotIndex === 0 && (
-                            <ReactMarkdown source={description} />
-                        )}
-                        <ReactMarkdown source={screenshotDescription} />
-                    </LayoutAside>
-                    <LayoutContent
-                        bleedTop={screenshotIndex === 0}
-                        bleedBottom={screenshotIndex === screenshots.length - 1}
-                    >
-                        <Browser {...screenshotFields} />
-
-                        {screenshotMobile && (
-                            <Mobile {...screenshotFields} />
-                        )}
-                    </LayoutContent>
-                </Layout>
+                <Layout
+                    key={screenshotId}
+                    bleedTop={screenshotIndex === 0}
+                    bleedBottom={screenshotIndex === screenshots.length - 1}
+                    renderSidebar={() => (
+                        <>
+                            {screenshotIndex === 0 && (
+                                <>
+                                    <ProjectHeader {...project} />
+                                    <ReactMarkdown source={description} />
+                                </>
+                            )}
+                            <ReactMarkdown source={screenshotDescription} />
+                        </>
+                    )}
+                    renderContent={() => (
+                        <ScreenShot {...screenshotFields} />
+                    )}
+                />
             ))}
         </Layer>
     </>

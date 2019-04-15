@@ -5,9 +5,8 @@ import Head from 'next/head';
 import Layer from '../components/Layer';
 import About from '../components/About';
 import Card from '../components/Card';
-import { Layout, LayoutAside, LayoutContent } from '../components/Layout';
+import Layout from '../components/Layout';
 import ProjectGrid from '../components/ProjectGrid';
-import Appear from '../components/Appear';
 
 import client from '../client';
 
@@ -22,13 +21,10 @@ const layout = {
 };
 
 const Home = ({ projects = [] }) => (
-    <Layout>
-        <LayoutAside>
-            <Appear>
-                <About />
-            </Appear>
-        </LayoutAside>
-        <LayoutContent bleedTop bleedBottom>
+    <Layout
+        bleedTop
+        bleedBottom
+        renderContent={() => (
             <Layer>
                 <ProjectGrid layout={layout}>
                     {projects.map(({
@@ -52,8 +48,11 @@ const Home = ({ projects = [] }) => (
                     ))}
                 </ProjectGrid>
             </Layer>
-        </LayoutContent>
-    </Layout>
+        )}
+        renderSidebar={() => (
+            <About />
+        )}
+    />
 );
 
 Home.getInitialProps = async () => {

@@ -6,9 +6,9 @@ export default class MyDocument extends Document {
         return (
             <html>
                 <Head>
-                    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+                    <meta httpEquiv="Content-type" content="text/html; charset=utf-8" />
 
-                    <meta charset="utf-8" />
+                    <meta charSet="utf-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
                     {/* http://ogp.me/ */}

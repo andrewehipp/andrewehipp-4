@@ -1,8 +1,6 @@
 import React from 'react';
 import cc from 'classcat';
 
-import Appear from '../Appear';
-
 import css from './project-grid.scss';
 
 const ProjectGrid = ({ children, layout = {} }) => (
@@ -19,9 +17,7 @@ const ProjectGrid = ({ children, layout = {} }) => (
 
             return (
                 <li className={classes}>
-                    <Appear delay={50 * childIndex}>
-                        {child}
-                    </Appear>
+                    {child}
                 </li>
             );
         })}

@@ -1,27 +1,12 @@
-@import '../../resources/scss/global.scss';
+@import '../../resources/scss/imports.scss';
 
 /* ------------------------------------ *\
     #MOBILE
 \* ------------------------------------ */
 
 .mobile {
-    width: 33.33333%;
-    max-width: 210px;
-    margin: 0 auto 20px;
-    position: absolute;
-    right: -5px;
-    top: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     z-index: 1;
-
-    @include media('sm') {
-        top: calc(20% - 20px);
-        right: -10px;
-    }
-
-    @include media('lg') {
-        right: -20px;
-    }
 }
 
 .inner {
