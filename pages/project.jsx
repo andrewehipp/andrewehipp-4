@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
 import Head from 'next/head';
 
 import Layout from '../components/Layout';
+import Markdown from '../components/Markdown';
 import Layer from '../components/Layer';
 import ProjectHeader from '../components/ProjectHeader';
 import ScreenShot from '../components/ScreenShot';
@@ -45,10 +45,10 @@ const Project = ({
                             {screenshotIndex === 0 && (
                                 <>
                                     <ProjectHeader {...project} />
-                                    <ReactMarkdown source={description} />
+                                    <Markdown>{description}</Markdown>
                                 </>
                             )}
-                            <ReactMarkdown source={screenshotDescription} />
+                            <Markdown>{screenshotDescription}</Markdown>
                         </>
                     )}
                     renderContent={() => (
