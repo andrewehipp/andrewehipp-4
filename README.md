@@ -15,8 +15,8 @@ URLS:
 
 # Dependencies
 
-* [React.js](https://reactjs.org/)
-* [Webpack 4+](https://webpack.js.org/)
+* Next.js
+* Contentful
 
 # Local Setup
 
