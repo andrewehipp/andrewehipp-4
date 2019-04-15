@@ -14,6 +14,6 @@ const rules = {
 const parser = SimpleMarkdown.parserFor(rules);
 const reactOutput = SimpleMarkdown.reactFor(SimpleMarkdown.ruleOutput(rules, 'react'));
 
-const Markdown = ({ children }) => reactOutput(parser(children));
+const Markdown = ({ children }) => children ? reactOutput(parser(children)) : null;
 
 export default Markdown;
