@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 
 import Layer from '../components/Layer';
 import About from '../components/About';
@@ -21,30 +22,32 @@ const layout = {
 };
 
 const Home = ({ projects = [] }) => (
-    <Layout>
-        <LayoutAside>
-            <Appear>
-                <About />
-            </Appear>
-        </LayoutAside>
-        <LayoutContent bleedTop bleedBottom>
-            <Layer>
-                <ProjectGrid layout={layout}>
-                    {projects.map((project) => (
-                        <Link
-                            key={project.sys.id}
-                            href={`/project?slug=${project.fields.slug}`}
-                            as={`/projects/${project.fields.slug}`}
-                        >
-                            <a>
-                                <Card {...project} />
-                            </a>
-                        </Link>
-                    ))}
-                </ProjectGrid>
-            </Layer>
-        </LayoutContent>
-    </Layout>
+    <>
+        <Layout>
+            <LayoutAside>
+                <Appear>
+                    <About />
+                </Appear>
+            </LayoutAside>
+            <LayoutContent bleedTop bleedBottom>
+                <Layer>
+                    <ProjectGrid layout={layout}>
+                        {projects.map((project) => (
+                            <Link
+                                key={project.sys.id}
+                                href={`/project?slug=${project.fields.slug}`}
+                                as={`/projects/${project.fields.slug}`}
+                            >
+                                <a>
+                                    <Card {...project} />
+                                </a>
+                            </Link>
+                        ))}
+                    </ProjectGrid>
+                </Layer>
+            </LayoutContent>
+        </Layout>
+        </>
 );
 
 Home.getInitialProps = async () => {

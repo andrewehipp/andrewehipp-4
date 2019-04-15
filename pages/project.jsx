@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import Head from 'next/head';
 
 import { Layout, LayoutAside, LayoutContent } from '../components/Layout';
 import Layer from '../components/Layer';
@@ -16,45 +17,51 @@ const Project = ({
     project,
     project: {
         fields: {
+            name,
             screenshots = [],
             description,
         } = {},
     } = {},
 }) => (
-    <Layer>
-        {screenshots.map(({
-            sys: {
-                id: screenshotId,
-            } = {},
-            fields: screenshotFields,
-            fields: {
-                mobile: screenshotMobile,
-                description: screenshotDescription,
-            } = {},
-        }, screenshotIndex) => (
-            <Layout key={screenshotId}>
-                <LayoutAside>
-                    {screenshotIndex === 0 && (
-                        <ProjectHeader {...project} />
-                    )}
-                    {screenshotIndex === 0 && (
-                        <ReactMarkdown source={description} />
-                    )}
-                    <ReactMarkdown source={screenshotDescription} />
-                </LayoutAside>
-                <LayoutContent
-                    bleedTop={screenshotIndex === 0}
-                    bleedBottom={screenshotIndex === screenshots.length - 1}
-                >
-                    <Browser {...screenshotFields} />
+    <>
+        <Head>
+            <title>{name} | Andrew Hipp - Front End Developer</title>
+        </Head>
+        <Layer>
+            {screenshots.map(({
+                sys: {
+                    id: screenshotId,
+                } = {},
+                fields: screenshotFields,
+                fields: {
+                    mobile: screenshotMobile,
+                    description: screenshotDescription,
+                } = {},
+            }, screenshotIndex) => (
+                <Layout key={screenshotId}>
+                    <LayoutAside>
+                        {screenshotIndex === 0 && (
+                            <ProjectHeader {...project} />
+                        )}
+                        {screenshotIndex === 0 && (
+                            <ReactMarkdown source={description} />
+                        )}
+                        <ReactMarkdown source={screenshotDescription} />
+                    </LayoutAside>
+                    <LayoutContent
+                        bleedTop={screenshotIndex === 0}
+                        bleedBottom={screenshotIndex === screenshots.length - 1}
+                    >
+                        <Browser {...screenshotFields} />
 
-                    {screenshotMobile && (
-                        <Mobile {...screenshotFields} />
-                    )}
-                </LayoutContent>
-            </Layout>
-        ))}
-    </Layer>
+                        {screenshotMobile && (
+                            <Mobile {...screenshotFields} />
+                        )}
+                    </LayoutContent>
+                </Layout>
+            ))}
+        </Layer>
+    </>
 );
 
 Project.getInitialProps = async ({ query }) => {
