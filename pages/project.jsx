@@ -70,8 +70,6 @@ Project.getInitialProps = async ({ query }) => {
         'fields.slug[in]': query.slug,
     })
 
-    console.log(project.items[0])
-
     return {
         project: project.items[0],
     }
