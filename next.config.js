@@ -7,22 +7,22 @@ module.exports = withSass({
         localIdentName: '[folder]__[local]___[hash:base64:5]'
     },
     exportPathMap: async function(defaultPathMap) {
-
         const projects = await client.getEntries({
             content_type: 'project',
         })
             .then(res => res.items)
-            .then(res => res.reduce((acc, project) => ({
-                ...acc,
-                [`/projects/${project.fields.slug}`]: {
-                    page: '/project',
+            .then(res =>
+                res.reduce((acc, project) => ({
+                    ...acc,
+                    [`/projects/${project.fields.slug}`]: {
+                        page: '/project',
                         query: {
                             slug: project.fields.slug,
                         }
                     },
-                })
-            ));
-
+                }), {})
+            );
+        console.log('projects', projects);
         return {
           '/': { page: '/' },
           // '/archive': { page: '/archive' },
