@@ -1,0 +1,33 @@
+@import '../../resources/scss/global.scss';
+
+.layout {
+    margin-bottom: 20px;
+
+    @include media('sm') {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        margin-bottom: 60px;
+        grid-gap: 40px;
+    }
+}
+
+.content {
+    position: relative;
+}
+
+.bleedTop {
+    @include media('sm') {
+        margin-top: -130px;
+    }
+}
+
+.bleedBottom {
+    margin-bottom: -75px;
+}
+
+.aside {
+    @include media('sm') {
+        margin-top: 50px;
+        position: relative;
+    }
+}

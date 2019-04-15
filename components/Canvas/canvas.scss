@@ -1,0 +1,11 @@
+@import '../../resources/scss/global.scss';
+
+.canvas {
+    background: $gradient;
+    background-size: 200vw 100%;
+    display: block;
+
+    @include media('sm') {
+        background-size: 100% 100%;
+    }
+}

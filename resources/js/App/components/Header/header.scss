@@ -1,0 +1,129 @@
+@import '../../../../scss/global/00-imports.scss';
+
+/* ------------------------------------ *\
+    #HEADER
+\* ------------------------------------ */
+
+.header {
+    overflow: hidden;
+    padding: 30px 0 25px;
+    margin-bottom: spacer(1.5);
+    color: color('black');
+    text-shadow: 1px 1px 0 #fff;
+    font-weight: bold;
+    position: relative;
+
+    @include media('sm') {
+        padding: 10px 0;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        height: 25px;
+        width: 100%;
+        background: color('black');
+        clip-path:
+            polygon(
+                0 0,
+                100% 0,
+                100% 100%,
+                0 calc(100% - 15px)
+            );
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        @include media('sm') {
+            height: 30px;
+            clip-path:
+                polygon(
+                    0 0,
+                    100% 0,
+                    100% 100%,
+                    0 calc(100% - 25px)
+                );
+        }
+    }
+
+    a {
+        color: inherit;
+
+        @include link-states() {
+            text-decoration: none;
+        }
+    }
+}
+
+.canvas {
+    left: 0;
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            100% calc(100% - 15px),
+            0 100%
+        );
+    width: 110%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    backface-visibility: hidden;
+
+    @include media('sm') {
+        clip-path:
+            polygon(
+                0 0,
+                100% 0,
+                100% calc(100% - 40px),
+                0 100%
+            );
+    }
+}
+
+.content {
+    padding: spacer(0.5) 0;
+
+    @include media('sm') {
+        padding: 3vmin 0;
+    }
+}
+
+.title {
+    color: color('body');
+
+    @include link-states() {
+        text-decoration: none;
+    }
+}
+
+.logo {
+    display: block;
+    margin-bottom: 0;
+    width: 40px;
+    height: auto;
+
+    @include media('sm') {
+        width: 64px;
+    }
+}
+
+.name {
+    @include rfz(24px, 30px);
+
+    margin-bottom: 0;
+}
+
+.role {
+    margin-bottom: 0;
+}
+
+.lockup {
+    display: flex;
+    align-items: center;
+}
+
+.lockupBlock {
+    margin-right: spacer(1);
+}

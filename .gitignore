@@ -6,7 +6,5 @@ node_modules
 npm-debug.log
 
 dist
-
-# Ignore temporary files BrowserSync makes.
-css/_*
-js/_*
+.next
+out
