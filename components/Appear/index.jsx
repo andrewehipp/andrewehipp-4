@@ -16,14 +16,18 @@ export default class Appear extends React.Component {
 
         const imagePromises = images.map(img => new Promise((res) => { img.onload = res; }));
 
-        Promise.all(imagePromises)
-            .then(() => {
-                this.timeout = window.setTimeout(() => {
-                    this.raf = window.requestAnimationFrame(() => {
-                        this.element.current.style.opacity = '';
-                    });
-                }, this.props.delay || 0);
-            });
+        if (this.element.current) {
+            Promise.all(imagePromises)
+                .then(() => {
+                    this.timeout = window.setTimeout(() => {
+                        this.raf = window.requestAnimationFrame(() => {
+                            if (this.element.current) {
+                                this.element.current.style.opacity = '';
+                            }
+                        });
+                    }, this.props.delay || 0);
+                });
+        }
     }
 
     componentWillUnmount() {
