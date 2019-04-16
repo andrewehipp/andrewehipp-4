@@ -1,0 +1,17 @@
+@import '../../resources/scss/imports.scss';
+
+.list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    display: block;
+    padding: 2px 8px;
+    background: color('green');
+    margin-right: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
