@@ -17,6 +17,7 @@
     "last 2 versions"
   ],
   "dependencies": {
+    "@zeit/next-preact": "^0.1.0",
     "@zeit/next-sass": "^1.0.1",
     "classcat": "^3.2.5",
     "contentful": "^7.5.0",
@@ -24,6 +25,8 @@
     "next": "^8.0.4",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
+    "preact": "^8.4.2",
+    "preact-compat": "^3.18.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "scrollmonitor": "^1.2.4",

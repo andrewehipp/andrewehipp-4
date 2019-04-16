@@ -42,8 +42,8 @@ export default class Image extends React.Component {
 
         return (
             <picture>
-                <source srcSet={!this.state.inView ? '' : `${src}${query}fm=webp`} type="image/webp" />
-                <img ref={this.image} src={!this.state.inView ? '' : src} alt={alt} {...props} />
+                <source srcSet={`${src}${query}fm=webp`} type="image/webp" />
+                <img ref={this.image} src={src} alt={alt} {...props} />
             </picture>
         );
     }
