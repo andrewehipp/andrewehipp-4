@@ -17,6 +17,7 @@ const Project = ({
     project: {
         fields: {
             name,
+            builtWith = [],
             screenshots = [],
             description,
         } = {},
@@ -45,6 +46,8 @@ const Project = ({
                             {screenshotIndex === 0 && (
                                 <>
                                     <ProjectHeader {...project} />
+                                    <ul>
+                                    </ul>
                                     <Markdown>{description}</Markdown>
                                 </>
                             )}

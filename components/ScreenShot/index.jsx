@@ -3,7 +3,7 @@ import React from 'react';
 import Browser from '../Browser';
 import Mobile from '../Mobile';
 
-import css from './styles.scss';
+import css from './screenshot.scss';
 
 const ScreenShot = ({
     name,

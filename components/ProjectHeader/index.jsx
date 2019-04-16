@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './projectHeader.scss';
+import css from './project-header.scss';
 
 const ProjectHeader = ({
     fields: {
