@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Aspect from '../Aspect';
-import Video from '../Video';
 import Image from '../Image';
+import Video from '../Video';
 
 import css from './browser.scss';
 

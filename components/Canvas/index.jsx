@@ -2,9 +2,9 @@ import React from 'react';
 import cc from 'classcat';
 import scrollMonitor from 'scrollmonitor';
 
-import css from './canvas.scss';
 import ParticleEffect from './ParticleEffect';
 
+import css from './canvas.scss';
 
 export default class Canvas extends React.Component {
     constructor() {

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Container from '../Container';
 import Canvas from '../Canvas';
+import Container from '../Container';
 import Layer from '../Layer';
 
 import css from './footer.scss';

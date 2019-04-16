@@ -10,7 +10,6 @@ const rules = {
     }
 };
 
-
 const parser = SimpleMarkdown.parserFor(rules);
 const reactOutput = SimpleMarkdown.reactFor(SimpleMarkdown.ruleOutput(rules, 'react'));
 

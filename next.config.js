@@ -22,7 +22,7 @@ module.exports = withSass({
                     },
                 }), {})
             );
-        console.log('projects', projects);
+
         return {
           '/': { page: '/' },
           // '/archive': { page: '/archive' },

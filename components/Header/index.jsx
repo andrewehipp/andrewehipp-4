@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Canvas from '../Canvas';
 import Container from '../Container';
 import Layer from '../Layer';
-import Canvas from '../Canvas';
 
 import css from './header.scss';
 
