@@ -3,10 +3,10 @@ import cc from 'classcat';
 
 import css from './project-grid.scss';
 
-const ProjectGrid = ({ children, layout = {} }) => (
+const ProjectGrid = ({ items, renderItem, layout = {} }) => (
     <ul className={css.projectGrid}>
-        {React.Children.map(children, (child, childIndex) => {
-            const layoutConfig = layout[childIndex] || {};
+        {items.map((item, itemIndex) => {
+            const layoutConfig = layout[itemIndex] || {};
             const classes = cc([
                 css.item,
                 {
@@ -17,7 +17,7 @@ const ProjectGrid = ({ children, layout = {} }) => (
 
             return (
                 <li className={classes}>
-                    {child}
+                    {renderItem(item, itemIndex, items)}
                 </li>
             );
         })}

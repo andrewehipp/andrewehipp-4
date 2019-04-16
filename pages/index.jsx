@@ -26,8 +26,10 @@ const Home = ({ projects = [] }) => (
         bleedBottom
         renderContent={() => (
             <Layer>
-                <ProjectGrid layout={layout}>
-                    {projects.map(({
+                <ProjectGrid
+                    layout={layout}
+                    items={projects}
+                    renderItem={({
                         sys: {
                             id: projectId,
                         } = {},
@@ -35,18 +37,23 @@ const Home = ({ projects = [] }) => (
                         fields: {
                             slug,
                         } = {},
-                    }) => (
+                    }, projectIndex) => (
                         <Link
                             key={projectId}
                             href={`/project?slug=${slug}`}
                             as={`/projects/${slug}`}
                         >
                             <a>
-                                <Card fields={fields} />
+                                <Card
+                                    fields={fields}
+                                    imageProps={{
+                                        lazy: projectIndex < 7 ? 'eager' : 'lazy'
+                                    }}
+                                />
                             </a>
                         </Link>
-                    ))}
-                </ProjectGrid>
+                    )}
+                />
             </Layer>
         )}
         renderSidebar={() => (

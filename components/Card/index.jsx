@@ -18,10 +18,11 @@ const Card = ({
             } = {},
         } = {},
     } = {},
+    imageProps = {},
 }) => (
     <article id={slug} className={css.card}>
         <Aspect modifiers="aspect-16x9">
-            <Image src={`${thumbnailUrl}?w=530`} alt="" className={css.cardImage} />
+            <Image src={`${thumbnailUrl}?w=530`} alt="" className={css.cardImage} {...imageProps} />
         </Aspect>
         <header className={css.cardHeader}>
             <h3 className={css.cardTitle}>{name}</h3>
