@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
+import Layer from '../components/Layer';
 import Layout from '../components/Layout';
 import Markdown from '../components/Markdown';
-import Layer from '../components/Layer';
 import ProjectHeader from '../components/ProjectHeader';
 import ScreenShot from '../components/ScreenShot';
 

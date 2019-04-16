@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
-import Layer from '../components/Layer';
 import About from '../components/About';
 import Card from '../components/Card';
+import Layer from '../components/Layer';
 import Layout from '../components/Layout';
 import ProjectGrid from '../components/ProjectGrid';
 
