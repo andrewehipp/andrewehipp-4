@@ -47,7 +47,7 @@ const Home = ({ projects = [] }) => (
                                 <Card
                                     fields={fields}
                                     imageProps={{
-                                        lazy: projectIndex < 7 ? 'eager' : 'lazy'
+                                        loading: projectIndex < 7 ? 'eager' : 'lazy'
                                     }}
                                 />
                             </a>
