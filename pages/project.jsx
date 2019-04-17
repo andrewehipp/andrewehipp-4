@@ -131,8 +131,6 @@ Project.getInitialProps = async ({ query }) => {
                 return undefined;
             }
 
-            console.log(projects, projects.length, projects.slice(projectIndex, 3))
-
             return projects.slice(projectIndex, projectIndex + 3);
         });
 
