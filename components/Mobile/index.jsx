@@ -25,7 +25,7 @@ const Mobile = ({
                     </Video>
 
                 ) : (
-                    <Image src={`https:${url}?fm=webp&w=210`} alt="" className={css.image} />
+                    <Image src={url} query="w=210" alt="" className={css.image} />
                 )}
             </Aspect>
         </div>

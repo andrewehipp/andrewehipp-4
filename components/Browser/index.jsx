@@ -36,7 +36,12 @@ const Browser = ({
                     <source src={`https:${url}`} type={contentType} />
                 </Video>
             ) : (
-                <Image src={`${url}?w=800`} alt="" className={css.image} />
+                <Image
+                    src={url}
+                    query="w=800"
+                    alt={name}
+                    className={css.image}
+                />
             )}
         </Aspect>
     </div>
