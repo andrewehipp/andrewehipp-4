@@ -16,7 +16,7 @@ const ProjectGrid = ({ items, renderItem, layout = {} }) => (
             ]);
 
             return (
-                <li className={classes}>
+                <li key={itemIndex} className={classes}>
                     {renderItem(item, itemIndex, items)}
                 </li>
             );

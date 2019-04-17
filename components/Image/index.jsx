@@ -8,8 +8,8 @@ const Image = ({
 }) => {
     return (
         <picture>
-            <source srcSet={`${src}?fm=webp${query ? `&${query}` : ''}`} type="image/webp" />
-            <img src={`${src}${query ? `?${query}` : ''}`} alt={alt} {...props} />
+            <source srcSet={`${src}?q=70&fm=webp${query ? `&${query}` : ''}`} type="image/webp" />
+            <img src={`${src}?q=70${query ? `&${query}` : ''}`} alt={alt} {...props} />
         </picture>
     );
 }
