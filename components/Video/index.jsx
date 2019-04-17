@@ -11,6 +11,7 @@ export default class Video extends React.Component {
         this.elementWatcher = scrollMonitor.create(this.video.current);
 
         this.elementWatcher.fullyEnterViewport(() => {
+            console.log('test')
             this.video.current.play();
         });
 
@@ -34,7 +35,7 @@ export default class Video extends React.Component {
 
         return (
             // eslint-disable-next-line
-            <video {...props} ref={this.video}>
+            <video ref={this.video} {...props} muted>
                 {children}
             </video>
         );

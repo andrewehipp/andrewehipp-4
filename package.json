@@ -17,7 +17,6 @@
     "last 2 versions"
   ],
   "dependencies": {
-    "@zeit/next-preact": "^0.1.0",
     "@zeit/next-sass": "^1.0.1",
     "classcat": "^3.2.5",
     "contentful": "^7.5.0",
