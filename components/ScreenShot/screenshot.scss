@@ -9,6 +9,10 @@
         grid-template-columns: 1fr #{210px - 20px} 20px;
         grid-auto-rows: 200px 1fr;
     }
+
+    @include media('lg') {
+        margin-right: -20px;
+    }
 }
 
 .desktop {
