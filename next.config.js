@@ -12,12 +12,16 @@ module.exports = withSass({
         })
             .then(res => res.items)
             .then(res =>
-                res.reduce((acc, project) => ({
+                res.reduce((acc, {
+                    fields: {
+                        slug,
+                    } = {},
+                }) => ({
                     ...acc,
-                    [`/projects/${project.fields.slug}`]: {
+                    [`/projects/${slug}`]: slug && {
                         page: '/project',
                         query: {
-                            slug: project.fields.slug,
+                            slug,
                         }
                     },
                 }), {})
