@@ -1,6 +1,5 @@
 const client = require('./client');
 const withSass = require('@zeit/next-sass');
-const withPreact = require('@zeit/next-preact');
 
 module.exports = withSass({
     cssModules: true,
@@ -26,7 +25,7 @@ module.exports = withSass({
 
         return {
           '/': { page: '/' },
-          // '/archive': { page: '/archive' },
+          '/archive': { page: '/archive' },
           ...projects,
         };
     }
