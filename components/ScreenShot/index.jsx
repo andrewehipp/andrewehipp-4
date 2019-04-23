@@ -1,4 +1,7 @@
 import React from 'react';
+import scrollMonitor from 'scrollmonitor';
+import { useSpring, animated } from 'react-spring';
+import imagesLoadad from 'imagesloaded';
 
 import Browser from '../Browser';
 import Mobile from '../Mobile';
@@ -9,18 +12,54 @@ const ScreenShot = ({
     name,
     desktop,
     mobile,
-}) => (
-    <div className={css.screenshot}>
-        <div className={css.desktop}>
-            <Browser desktop={desktop} name={name} />
-        </div>
+}) => {
+    const screenshot = React.createRef();
 
-        {mobile &&
-            <div className={css.mobile}>
-                <Mobile mobile={mobile} />
-            </div>
+    const [props, set] = useSpring(() => ({
+        opacity: 0,
+        transform: 'translateY(50px)',
+    }))
+
+    const [mobileProps, setMobile] = useSpring(() => ({
+        opacity: 0,
+        transform: 'translateY(50px)',
+    }))
+
+    React.useEffect(() => {
+        const elementWatcher = scrollMonitor.create(screenshot.current);
+
+        elementWatcher.enterViewport(() => {
+            imagesLoadad(screenshot.current, () => {
+                set({
+                    opacity: 1,
+                    transform: 'translateY(0)',
+                });
+                setMobile({
+                    opacity: 1,
+                    transform: 'translateY(0)',
+                });
+            })
+        });
+
+        return () => {
+            stop();
+            elementWatcher.destroy();
         }
-    </div>
-);
+    });
+
+    return (
+        <animated.div style={props} className={css.screenshot} ref={screenshot}>
+            <div className={css.desktop}>
+                <Browser desktop={desktop} name={name} />
+            </div>
+
+            {mobile &&
+                <animated.div style={mobileProps} div className={css.mobile}>
+                    <Mobile mobile={mobile} />
+                </animated.div>
+            }
+        </animated.div>
+    );
+};
 
 export default ScreenShot;

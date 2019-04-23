@@ -89,6 +89,7 @@ const Project = ({
                                             imageProps={{
                                                 loading: 'lazy'
                                             }}
+                                            delay={32 * projectIndex}
                                         />
                                     </a>
                                 </Link>
