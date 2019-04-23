@@ -6,46 +6,34 @@ import ParticleEffect from './ParticleEffect';
 
 import css from './canvas.scss';
 
-export default class Canvas extends React.Component {
-    constructor() {
-        super();
+const Canvas = React.memo(function Canvas({
+    className,
+    ...props
+}) {
+    const canvas = React.createRef();
 
-        this.canvas = React.createRef();
-    }
+    React.useEffect(() => {
+        const effect = new ParticleEffect(canvas.current);
 
-    componentDidMount() {
-        if (window) {
-            this.effect = new ParticleEffect(this.canvas.current);
+        const elementWatcher = scrollMonitor.create(canvas.current);
 
-            this.elementWatcher = scrollMonitor.create(this.canvas.current);
+        elementWatcher.enterViewport(() => {
+            effect.play();
+        });
 
-            this.elementWatcher.enterViewport(() => {
-                this.effect.play();
-            });
+        elementWatcher.exitViewport(() => {
+            effect.pause();
+        });
+    });
 
-            this.elementWatcher.exitViewport(() => {
-                this.effect.pause();
-            });
-        }
-    }
+    const classes = cc([
+        css.canvas,
+        className,
+    ]);
 
-    shouldComponentUpdate() {
-        return false;
-    }
+    return (
+        <canvas ref={canvas} className={classes} {...props} />
+    );
+});
 
-    render() {
-        const {
-            className,
-            ...props
-        } = this.props;
-
-        const classes = cc([
-            css.canvas,
-            className,
-        ]);
-
-        return (
-            <canvas ref={this.canvas} className={classes} {...props} />
-        );
-    }
-}
+export default Canvas;
