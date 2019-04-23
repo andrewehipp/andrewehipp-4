@@ -47,6 +47,7 @@ a {
     text-decoration: none;
 
     @include link-states() {
+        cursor: pointer;
         text-decoration: underline;
     }
 }

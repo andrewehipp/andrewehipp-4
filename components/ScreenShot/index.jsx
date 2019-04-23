@@ -17,7 +17,7 @@ const ScreenShot = ({
 
     const [props, set] = useSpring(() => ({
         opacity: 0,
-        transform: 'translateY(50px)',
+        transform: 'translateY(50px) scale(0.98)',
     }))
 
     const [mobileProps, setMobile] = useSpring(() => ({
@@ -32,11 +32,12 @@ const ScreenShot = ({
             imagesLoadad(screenshot.current, () => {
                 set({
                     opacity: 1,
-                    transform: 'translateY(0)',
+                    transform: 'translateY(0) scale(1)',
                 });
                 setMobile({
                     opacity: 1,
                     transform: 'translateY(0)',
+                    delay: 50
                 });
             })
         });

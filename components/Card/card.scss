@@ -6,6 +6,12 @@
     color: #fff;
     font-family: $base-font-family;
     text-align: left;
+    transform-origin: center top;
+}
+
+.cardOuter {
+    position: relative;
+    perspective: 1000px;
 }
 
 .cardImage {

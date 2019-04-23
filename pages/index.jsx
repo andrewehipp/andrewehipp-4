@@ -49,7 +49,7 @@ const Home = ({ projects = [] }) => (
                                     imageProps={{
                                         loading: projectIndex < 7 ? 'eager' : 'lazy'
                                     }}
-                                    delay={16 * projectIndex}
+                                    delay={32 * projectIndex}
                                 />
                             </a>
                         </Link>

@@ -28,7 +28,7 @@ const Card = ({
 
     const [props, set] = useSpring(() => ({
         opacity: 0,
-        transform: 'translateY(50px)',
+        transform: 'translateY(100px) translateZ(-20px) rotateX(-45deg)',
     }))
 
 
@@ -39,7 +39,7 @@ const Card = ({
             imagesLoadad(card.current, () => {
                 set({
                     opacity: 1,
-                    transform: 'translateY(0)',
+                    transform: 'translateY(0) translateZ(0) rotateX(0)',
                     delay,
                 });
             })
@@ -52,21 +52,23 @@ const Card = ({
     });
 
     return (
-        <animated.article style={props} ref={card} id={slug} className={css.card}>
-            <Aspect modifiers="aspect-16x9">
-                <Image
-                    src={thumbnailUrl}
-                    query="w=530"
-                    alt={name}
-                    className={css.cardImage}
-                    {...imageProps}
-                />
-            </Aspect>
-            <header className={css.cardHeader}>
-                <h3 className={css.cardTitle}>{name}</h3>
-                <h5 className={css.cardClient}>{client}</h5>
-            </header>
-        </animated.article>
+        <article ref={card} id={slug} className={css.cardOuter}>
+            <animated.div style={props} className={css.card}>
+                <Aspect modifiers="aspect-16x9">
+                    <Image
+                        src={thumbnailUrl}
+                        query="w=530"
+                        alt={name}
+                        className={css.cardImage}
+                        {...imageProps}
+                    />
+                </Aspect>
+                <header className={css.cardHeader}>
+                    <h3 className={css.cardTitle}>{name}</h3>
+                    <h5 className={css.cardClient}>{client}</h5>
+                </header>
+            </animated.div>
+        </article>
     );
 };
 
