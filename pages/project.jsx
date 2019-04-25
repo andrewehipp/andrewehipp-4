@@ -98,6 +98,7 @@ const Project = ({
                                         key={nextProjectId}
                                         href={`/project?slug=${nextProjectSlug}`}
                                         as={`/projects/${nextProjectSlug}`}
+                                        prefetch
                                     >
                                         <a>
                                             <Card

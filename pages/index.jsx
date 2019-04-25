@@ -42,6 +42,7 @@ const Home = ({ projects = [] }) => (
                             key={projectId}
                             href={`/project?slug=${slug}`}
                             as={`/projects/${slug}`}
+                            prefetch
                         >
                             <a>
                                 <Card
