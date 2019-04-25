@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
                     <link rel="icon" type="image/png" sizes="32x32" href="/static/img/meta/favicon-32x32.png" />
                     <link rel="icon" type="image/png" sizes="96x96" href="/static/img/meta/favicon-96x96.png" />
                     <link rel="icon" type="image/png" sizes="16x16" href="/static/img/meta/favicon-16x16.png" />
-                    <link rel="manifest" href="/static/img/meta/manifest.json" />
+                    <link rel="manifest" href="/static/manifest.json" />
                     <meta name="msapplication-TileColor" content="#ffffff" />
                     <meta name="msapplication-TileImage" content="/img/meta/ms-icon-144x144.png" />
                     <meta name="theme-color" content="#ffffff" />
