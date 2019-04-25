@@ -46,7 +46,7 @@ const ScreenShot = ({
             stop();
             elementWatcher.destroy();
         }
-    });
+    }, [name]);
 
     return (
         <animated.div style={props} className={css.screenshot} ref={screenshot}>

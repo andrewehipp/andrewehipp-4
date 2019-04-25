@@ -24,7 +24,7 @@ const Video = ({
         return () => {
             elementWatcher.destroy();
         }
-    });
+    }, [true]);
 
     return (
         // eslint-disable-next-line

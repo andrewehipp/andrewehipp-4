@@ -49,7 +49,7 @@ const Card = ({
             stop();
             elementWatcher.destroy();
         }
-    });
+    }, [name]);
 
     return (
         <article ref={card} id={slug} className={css.cardOuter}>

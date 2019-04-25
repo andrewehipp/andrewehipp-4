@@ -24,7 +24,7 @@ const Canvas = React.memo(function Canvas({
         elementWatcher.exitViewport(() => {
             effect.pause();
         });
-    });
+    }, [true]);
 
     const classes = cc([
         css.canvas,
