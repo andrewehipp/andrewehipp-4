@@ -1,3 +1,22 @@
+@import '../../resources/scss/imports.scss';
+
 .title {
-    font-size: 25px;
+    @include rfz(20px, 40px);
+
+    line-height: 1.2;
+}
+
+.lineOuter {
+    display: block;
+    overflow: hidden;
+    line-height: 1.2;
+    height: 1.2em;
+}
+
+.lineInner {
+    display: block;
+    overflow: hidden;
+    line-height: 1.2;
+    height: 1.2em;
+    will-change: transform, opacity;
 }

@@ -4,15 +4,37 @@
     margin-bottom: 20px;
 }
 
+.titleWrap {
+    position: relative;
+    width: 100%;
+    height: 39px;
+    line-height: 39px;
+    will-change: transform, opacity;
+    overflow: hidden;
+}
+
+
 .title {
     @include rfz(28px, 36px);
 
+    overflow: hidden;
     margin: 0;
     line-height: (39px / 36px);
+}
+
+.clientWrap {
+    position: relative;
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    will-change: transform, opacity;
+    overflow: hidden;
 }
 
 .client {
     @include rfz(16px, 18px);
 
+    overflow: hidden;
     color: color('grey');
+    line-height: (26px / 18px);
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useSpring, animated } from 'react-spring'
 
 import Card from '../components/Card';
 import Layer from '../components/Layer';
@@ -25,84 +26,100 @@ const Project = ({
         } = {},
     } = {},
     nextProjects,
-}) => (
-    <>
-        <Head>
-            <title>{name} | Andrew Hipp - Front End Developer</title>
-        </Head>
-        <Layer>
-            {screenshots.map(({
-                sys: {
-                    id: screenshotId,
-                } = {},
-                fields: screenshotFields,
-                fields: {
-                    description: screenshotDescription,
-                } = {},
-            }, screenshotIndex) => (
-                <Layout
-                    key={screenshotId}
-                    renderSidebar={() => (
-                        <>
-                            {screenshotIndex === 0 && (
-                                <>
-                                    <ProjectHeader {...project} />
-                                    <ul>
-                                    </ul>
-                                    <Markdown>{description}</Markdown>
-                                </>
-                            )}
-                            <Markdown>{screenshotDescription}</Markdown>
-                        </>
-                    )}
-                    renderContent={() => (
-                        <ScreenShot {...screenshotFields} />
-                    )}
-                    bleedTop={screenshotIndex === 0}
-                />
-            ))}
-        </Layer>
+}) => {
+    const props = useSpring({
+        opacity: 1,
+        transform: 'translateY(0)',
+        from: {
+            opacity: 0,
+            transform: 'translateY(20px)',
+        },
+        delay: 1000
+    });
 
-        {nextProjects && (
+    return (
+        <>
+            <Head>
+                <title>{name} | Andrew Hipp - Front End Developer</title>
+            </Head>
             <Layer>
-                <Layout
-                    renderContent={() => (
-                        <ProjectGrid
-                            items={nextProjects}
-                            renderItem={({
-                                sys: {
-                                    id: nextProjectId,
-                                } = {},
-                                fields: nextProjectFields,
-                                fields: {
-                                    slug: nextProjectSlug,
-                                } = {},
-                            }, projectIndex) => (
-                                <Link
-                                    key={nextProjectId}
-                                    href={`/project?slug=${nextProjectSlug}`}
-                                    as={`/projects/${nextProjectSlug}`}
-                                >
-                                    <a>
-                                        <Card
-                                            fields={nextProjectFields}
-                                            imageProps={{
-                                                loading: 'lazy'
-                                            }}
-                                            delay={32 * projectIndex}
-                                        />
-                                    </a>
-                                </Link>
-                            )}
-                        />
-                    )}
-                    bleedBottom
-                />
+                {screenshots.map(({
+                    sys: {
+                        id: screenshotId,
+                    } = {},
+                    fields: screenshotFields,
+                    fields: {
+                        description: screenshotDescription,
+                    } = {},
+                }, screenshotIndex) => (
+                    <Layout
+                        key={screenshotId}
+                        renderSidebar={() => (
+                            <>
+                                {screenshotIndex === 0 && (
+                                    <>
+                                        <ProjectHeader {...project} />
+                                        <ul>
+                                        </ul>
+                                        <animated.div style={props}>
+                                            <Markdown>{description}</Markdown>
+                                        </animated.div>
+                                    </>
+                                )}
+                                <animated.div style={props}>
+                                    <Markdown>{screenshotDescription}</Markdown>
+                                </animated.div>
+                            </>
+                        )}
+                        renderContent={() => (
+                            <ScreenShot {...screenshotFields} />
+                        )}
+                        bleedTop={screenshotIndex === 0}
+                    />
+                ))}
             </Layer>
 
-        )}
-    </>
-);
+            {nextProjects && (
+                <Layer>
+                    <Layout
+                        renderContent={() => (
+                            <ProjectGrid
+                                items={nextProjects}
+                                renderItem={({
+                                    sys: {
+                                        id: nextProjectId,
+                                    } = {},
+                                    fields: nextProjectFields,
+                                    fields: {
+                                        slug: nextProjectSlug,
+                                    } = {},
+                                }, projectIndex) => (
+                                    <Link
+                                        key={nextProjectId}
+                                        href={`/project?slug=${nextProjectSlug}`}
+                                        as={`/projects/${nextProjectSlug}`}
+                                    >
+                                        <a>
+                                            <Card
+                                                fields={nextProjectFields}
+                                                imageProps={{
+                                                    loading: 'lazy'
+                                                }}
+                                                delay={32 * projectIndex}
+                                            />
+                                        </a>
+                                    </Link>
+                                )}
+                            />
+                        )}
+                        bleedBottom
+                    />
+                </Layer>
+
+            )}
+        </>
+    );
+};
 
 Project.getInitialProps = async ({ query }) => {
     const project = await client.getEntries({
