@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "NODE_ENV=production next start",
     "export": "npm run build && next export",
-    "serve": "http-server ./out"
+    "serve": "http-server ./out -S -C cert.pem -o"
   },
   "author": "Andrew Hipp",
   "license": "ISC",
@@ -18,8 +18,14 @@
   ],
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "babel-eslint": "^10.0.2",
     "classcat": "^3.2.5",
     "contentful": "^7.5.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
     "http-server": "^0.11.1",
     "imagesloaded": "^4.1.4",
     "next": "^8.0.4",
@@ -30,6 +36,9 @@
     "react-dom": "^16.8.6",
     "react-spring": "^8.0.19",
     "scrollmonitor": "^1.2.4",
-    "simple-markdown": "^0.4.4"
+    "simple-markdown": "^0.4.4",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-scss": "^3.9.3"
   }
 }
