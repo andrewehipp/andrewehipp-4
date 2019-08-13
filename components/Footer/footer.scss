@@ -6,7 +6,7 @@
 
 .footer {
     overflow: hidden;
-    margin-top: -35px;
+    // margin-top: -35px;
     padding: spacer(6) 0 20px;
     color: darken(#fff, 20%);
     position: relative;
@@ -15,22 +15,26 @@
     &::after {
         content: '';
         display: block;
-        margin-top: 60px;
+        margin-top: 90px;
         width: 105%;
         background: color('black');
-        clip-path:
-            polygon(
-                0 0,
-                100% 40px,
-                100% 101%,
-                0 101%
-            );
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
         z-index: 2;
         transform-origin: left top;
+
+        @supports (clip-path: polygon(0 0)) {
+            margin-top: 60px;
+            clip-path:
+                polygon(
+                    0 0,
+                    100% 40px,
+                    100% 101%,
+                    0 101%
+                );
+        }
     }
 }
 
@@ -38,15 +42,18 @@
     display: block;
     height: 150px;
     width: 100%;
-    clip-path:
-        polygon(
-            0 40px,
-            100% 0,
-            100% 100%,
-            0 100%
-        );
     position: absolute;
     top: 0;
     right: 0;
     z-index: 1;
+
+    @supports (clip-path: polygon(0 0)) {
+        clip-path:
+            polygon(
+                0 40px,
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+    }
 }

@@ -20,30 +20,38 @@
     &::before {
         content: '';
         display: block;
-        height: 25px;
+        height: 10px;
         width: 100%;
         background: color('black');
-        clip-path:
-            polygon(
-                0 0,
-                100% 0,
-                100% 100%,
-                0 calc(100% - 15px)
-            );
         position: absolute;
         top: 0;
         left: 0;
         z-index: 1;
 
         @include media('sm') {
-            height: 30px;
+            height: 15px;
+        }
+
+        @supports (clip-path: polygon(0 0)) {
+            height: 25px;
             clip-path:
                 polygon(
                     0 0,
                     100% 0,
                     100% 100%,
-                    0 calc(100% - 25px)
+                    0 calc(100% - 15px)
                 );
+
+            @include media('sm') {
+                height: 30px;
+                clip-path:
+                    polygon(
+                        0 0,
+                        100% 0,
+                        100% 100%,
+                        0 calc(100% - 25px)
+                    );
+            }
         }
     }
 
@@ -58,27 +66,30 @@
 
 .canvas {
     left: 0;
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            100% calc(100% - 15px),
-            0 100%
-        );
     width: 110%;
     height: 100%;
     position: absolute;
     bottom: 0;
     backface-visibility: hidden;
 
-    @include media('sm') {
+    @supports (clip-path: polygon(0 0)) {
         clip-path:
             polygon(
                 0 0,
                 100% 0,
-                100% calc(100% - 40px),
+                100% calc(100% - 15px),
                 0 100%
             );
+
+        @include media('sm') {
+            clip-path:
+                polygon(
+                    0 0,
+                    100% 0,
+                    100% calc(100% - 40px),
+                    0 100%
+                );
+        }
     }
 }
 
