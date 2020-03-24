@@ -43,10 +43,7 @@ const Home = ({ projects = [] }) => (
                                 <a>
                                     <Card
                                         fields={fields}
-                                        imageProps={{
-                                            loading: projectIndex < 7 ? 'eager' : 'lazy',
-                                        }}
-                                        delay={32 * projectIndex}
+                                        delay={80 * projectIndex}
                                     />
                                 </a>
                             </Link>

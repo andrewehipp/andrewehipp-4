@@ -102,10 +102,7 @@ const Project = ({
                                             <a>
                                                 <Card
                                                     fields={nextProjectFields}
-                                                    imageProps={{
-                                                        loading: 'lazy',
-                                                    }}
-                                                    delay={32 * projectIndex}
+                                                    delay={80 * projectIndex}
                                                 />
                                             </a>
                                         </Link>
