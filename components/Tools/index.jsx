@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSprings, animated } from 'react-spring'
 
-import css from './tools.scss';
+import css from './tools.module.scss';
 
 const Tools = ({ tools = [] }) => {
     if (!tools.length) {

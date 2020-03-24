@@ -1,7 +1,7 @@
 import React from 'react';
 import cc from 'classcat';
 
-import css from './project-grid.scss';
+import css from './project-grid.module.scss';
 
 const ProjectGrid = ({ items, renderItem, layout = {} }) => (
     <ul className={css.projectGrid}>

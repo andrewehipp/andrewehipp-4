@@ -4,7 +4,7 @@ import Canvas from '../Canvas';
 import Container from '../Container';
 import Layer from '../Layer';
 
-import css from './footer.scss';
+import css from './footer.module.scss';
 
 const Footer = React.memo(function Footer() {
     return (

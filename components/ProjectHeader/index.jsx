@@ -3,7 +3,7 @@ import { useSpring, animated } from 'react-spring'
 
 import Tools from '../Tools';
 
-import css from './project-header.scss';
+import css from './project-header.module.scss';
 
 const ProjectHeader = ({
     fields: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTrail, useSpring, useChain, animated } from 'react-spring'
 
-import css from './about.scss';
+import css from './about.module.scss';
 
 const About = () => {
     const lines = [

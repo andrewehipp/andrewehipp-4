@@ -4,7 +4,7 @@ import scrollMonitor from 'scrollmonitor';
 
 import ParticleEffect from './ParticleEffect';
 
-import css from './canvas.scss';
+import css from './canvas.module.scss';
 
 const Canvas = React.memo(function Canvas({
     className,

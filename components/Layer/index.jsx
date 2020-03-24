@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './layer.scss';
+import css from './layer.module.scss';
 
 const Layer = ({ children }) => (
     <div className={css.layer}>

@@ -6,6 +6,8 @@ import Container from '../components/Container';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+import '../resources/scss/global.scss';
+
 class MyApp extends App {
     static async getInitialProps({ Component, ctx }) {
         let pageProps = {};

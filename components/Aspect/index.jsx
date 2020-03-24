@@ -1,7 +1,7 @@
 import React from 'react';
 import cc from 'classcat';
 
-import css from './aspect.scss';
+import css from './aspect.module.scss';
 
 const Aspect = ({ children, modifiers = '', className, width, height, ...props }) => {
     const classes = cc([

@@ -10,7 +10,6 @@ $aspect-config: (
     'ipad': percentage(1024 / 768),
 );
 
-
 /**
  * Enforce an aspect ratio on a responsive image before the page loads. Uses
  * the same trick as responsive videos.

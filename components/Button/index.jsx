@@ -1,13 +1,19 @@
 import React from 'react';
 import cc from 'classcat';
 
-import css from './button.scss';
+import css from './button.module.scss';
 
-const Button = ({ node = 'button', className, modifiers = '', children, ...props }) => {
+const Button = ({
+    node = 'button',
+    className,
+    modifiers = '',
+    children,
+    ...props
+}) => {
     const classes = cc([
         className,
         css.button,
-        modifiers.split(' ').map(modifier => css[modifier]),
+        modifiers.split(' ').map((modifier) => css[modifier]),
     ]);
 
     return React.createElement(node, {

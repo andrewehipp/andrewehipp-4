@@ -6,7 +6,7 @@ import imagesLoadad from 'imagesloaded';
 import Browser from '../Browser';
 import Mobile from '../Mobile';
 
-import css from './screenshot.scss';
+import css from './screenshot.module.scss';
 
 const ScreenShot = ({
     name,

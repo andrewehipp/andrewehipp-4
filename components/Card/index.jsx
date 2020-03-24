@@ -6,7 +6,7 @@ import imagesLoadad from 'imagesloaded';
 import Aspect from '../Aspect';
 import Image from '../Image';
 
-import css from './card.scss';
+import css from './card.module.scss';
 
 const Card = ({
     fields: {
