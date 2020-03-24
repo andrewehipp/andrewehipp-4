@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { Container as AppContainer } from 'next/app';
+import App from 'next/app';
 import Head from 'next/head';
 
 import Container from '../components/Container';
@@ -23,7 +23,7 @@ class MyApp extends App {
         const { Component, pageProps } = this.props;
 
         return (
-            <AppContainer>
+            <div>
                 <Head>
                     <title>Andrew Hipp - Front End Developer</title>
                 </Head>
@@ -35,7 +35,7 @@ class MyApp extends App {
                 </Container>
 
                 <Footer />
-            </AppContainer>
+            </div>
         );
     }
 }
