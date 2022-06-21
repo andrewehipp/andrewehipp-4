@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSprings, animated } from 'react-spring'
+import { useSprings, animated } from 'react-spring';
 
 import css from './tools.module.scss';
 
@@ -8,13 +8,13 @@ const Tools = ({ tools = [] }) => {
         return null;
     }
 
-    const [springs, set] = useSprings(tools.length, index => ({
+    const [springs, set] = useSprings(tools.length, () => ({
         opacity: 0,
         transformOrigin: 'right center',
         transform: 'rotate(-90deg)',
     }));
 
-    set(index => ({
+    set((index) => ({
         opacity: 1,
         transformOrigin: 'right center',
         transform: 'rotate(-45deg)',

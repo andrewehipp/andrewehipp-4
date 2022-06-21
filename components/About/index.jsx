@@ -43,7 +43,7 @@ const About = () => {
                         className={css.lineOuter}
                         style={{
                             ...rest,
-                            transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
+                            transform: x.interpolate((translateX) => `translate3d(0,${translateX}px,0)`),
                         }}
                     >
                         <animated.span
@@ -60,11 +60,11 @@ const About = () => {
 
             <animated.div style={spring}>
                 <p>Ten years as a Front End Developer building highly optimized, responsive, localized websites.</p>
-                <p>Currently building sites with <strong>Next.js</strong>, <strong>CSS Modules</strong>, <strong>ES6</strong>, and <strong>Webpack</strong>.</p>
+                <p>Currently building sites with <strong>React</strong>, <strong>Vue</strong>, <strong>CSS Modules</strong>, <strong>ES6</strong>, and <strong>Webpack</strong>.</p>
                 <p>Previously six years as a Web Designer with a B.F.A in Graphic Design.</p>
             </animated.div>
         </div>
-    )
+    );
 };
 
 export default About;

@@ -3,11 +3,13 @@ import cc from 'classcat';
 
 import css from './aspect.module.scss';
 
-const Aspect = ({ children, modifiers = '', className, width, height, ...props }) => {
+const Aspect = ({
+    children, modifiers = '', className, width, height, ...props
+}) => {
     const classes = cc([
         className,
         css.aspect,
-        modifiers.split(' ').map(modifier => css[modifier]),
+        modifiers.split(' ').map((modifier) => css[modifier]),
     ]);
 
     const styles = width && height && ({

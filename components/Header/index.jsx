@@ -7,7 +7,7 @@ import Layer from '../Layer';
 
 import css from './header.module.scss';
 
-const Header = React.memo(() => (
+const Header = () => (
     <header className={css.header}>
         <Canvas className={css.canvas} key="header-canvas" />
 
@@ -38,7 +38,7 @@ const Header = React.memo(() => (
             </Layer>
         </Container>
     </header>
-));
+);
 
 
 export default Header;

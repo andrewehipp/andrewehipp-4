@@ -54,7 +54,7 @@ const ScreenShot = ({
             </div>
 
             {mobile ? (
-                <animated.div style={mobileProps} div className={css.mobile}>
+                <animated.div style={mobileProps} className={css.mobile}>
                     <Mobile mobile={mobile} />
                 </animated.div>
             ) : null}
