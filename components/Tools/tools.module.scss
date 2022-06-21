@@ -1,21 +1,30 @@
 @import 'imports';
 
 .list {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
     list-style: none;
-    height: 68px;
     padding: 0;
-    position: absolute;
-    top: 0;
-    right: 100%;
-    margin-right: 20px;
+
+    @include media('xl') {
+        margin-right: 20px;
+        height: 68px;
+        position: absolute;
+        top: 0;
+        right: 100%;
+    }
 }
 
 .item {
     display: block;
-    width: 25px;
-    height: 25px;
-    margin-bottom: 1.25em;
     position: relative;
+
+    @include media('xl') {
+        width: 25px;
+        height: 25px;
+        margin-bottom: 1.25em;
+    }
 }
 
 .tag {
@@ -24,10 +33,14 @@
     background: #eee;
     border-radius: 5px;
     white-space: nowrap;
-    position: absolute;
-    top: 12px;
-    right: 12px;
     color: #888;
+    position: relative;
+
+    @include media('xl') {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+    }
 
     &::before {
         content: '';

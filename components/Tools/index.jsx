@@ -14,12 +14,14 @@ const Tools = ({ tools = [] }) => {
         transform: 'rotate(-90deg)',
     }));
 
-    set((index) => ({
-        opacity: 1,
-        transformOrigin: 'right center',
-        transform: 'rotate(-45deg)',
-        delay: 100 * index + 500,
-    }));
+    React.useEffect(() => {
+        set((index) => ({
+            opacity: 1,
+            transformOrigin: 'right center',
+            transform: window.innerWidth > 1200 ? 'rotate(-45deg)' : 'rotate(0deg)',
+            delay: 100 * index + 500,
+        }));
+    });
 
     return (
         <ul className={css.list}>
