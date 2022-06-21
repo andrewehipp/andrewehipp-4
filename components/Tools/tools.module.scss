@@ -19,14 +19,14 @@
 
 .tag {
     display: inline-block;
-        padding: 2px 12px 3px 8px;
-        background: #eee;
-        border-radius: 5px;
-        white-space: nowrap;
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        color: #888;
+    padding: 2px 12px 3px 8px;
+    background: #eee;
+    border-radius: 5px;
+    white-space: nowrap;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #888;
 
     &::before {
         content: '';
@@ -38,5 +38,10 @@
         position: absolute;
         top: 4px;
         right: 4px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background: #000;
+        color: color('grey-light');
     }
 }

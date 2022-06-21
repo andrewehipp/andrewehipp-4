@@ -15,6 +15,10 @@
     box-shadow: 0 0 3px fade-out(color('black'), 0.75);
     position: relative;
 
+    @media (prefers-color-scheme: dark) {
+        background: #000;
+    }
+
     &::after {
         content: '';
         display: block;

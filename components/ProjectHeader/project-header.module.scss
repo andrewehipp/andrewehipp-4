@@ -36,4 +36,8 @@
     overflow: hidden;
     color: color('grey');
     line-height: (26px / 18px);
+
+    @media (prefers-color-scheme: dark) {
+        color: color('grey-light');
+    }
 }

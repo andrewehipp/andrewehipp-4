@@ -18,12 +18,12 @@ const ScreenShot = ({
     const [props, set] = useSpring(() => ({
         opacity: 0,
         transform: 'translateY(50px) scale(0.98)',
-    }))
+    }));
 
     const [mobileProps, setMobile] = useSpring(() => ({
         opacity: 0,
         transform: 'translateY(50px)',
-    }))
+    }));
 
     React.useEffect(() => {
         const elementWatcher = scrollMonitor.create(screenshot.current);
@@ -37,15 +37,14 @@ const ScreenShot = ({
                 setMobile({
                     opacity: 1,
                     transform: 'translateY(0)',
-                    delay: 50
+                    delay: 50,
                 });
-            })
+            });
         });
 
         return () => {
-            stop();
             elementWatcher.destroy();
-        }
+        };
     }, [name]);
 
     return (
@@ -54,11 +53,11 @@ const ScreenShot = ({
                 <Browser desktop={desktop} name={name} />
             </div>
 
-            {mobile &&
+            {mobile ? (
                 <animated.div style={mobileProps} div className={css.mobile}>
                     <Mobile mobile={mobile} />
                 </animated.div>
-            }
+            ) : null}
         </animated.div>
     );
 };

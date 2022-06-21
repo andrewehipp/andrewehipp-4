@@ -52,6 +52,10 @@
                     );
             }
         }
+
+        @media (prefers-color-scheme: dark) {
+            background: #000;
+        }
     }
 
     a {
