@@ -53,30 +53,30 @@ const Project = ({
                         description: screenshotDescription,
                     } = {},
                 }, screenshotIndex) => (
-                        <Layout
-                            key={screenshotId}
-                            renderSidebar={() => (
-                                <>
-                                    {screenshotIndex === 0 && (
-                                        <>
-                                            <ProjectHeader {...project} />
-                                            <ul />
-                                            <animated.div style={props}>
-                                                <Markdown>{description}</Markdown>
-                                            </animated.div>
-                                        </>
-                                    )}
-                                    <animated.div style={props}>
-                                        <Markdown>{screenshotDescription}</Markdown>
-                                    </animated.div>
-                                </>
-                            )}
-                            renderContent={() => (
-                                <ScreenShot {...screenshotFields} />
-                            )}
-                            bleedTop={screenshotIndex === 0}
-                        />
-                    ))}
+                    <Layout
+                        key={screenshotId}
+                        renderSidebar={() => (
+                            <>
+                                {screenshotIndex === 0 && (
+                                    <>
+                                        <ProjectHeader {...project} />
+                                        <ul />
+                                        <animated.div style={props}>
+                                            <Markdown>{description}</Markdown>
+                                        </animated.div>
+                                    </>
+                                )}
+                                <animated.div style={props}>
+                                    <Markdown>{screenshotDescription}</Markdown>
+                                </animated.div>
+                            </>
+                        )}
+                        renderContent={() => (
+                            <ScreenShot {...screenshotFields} />
+                        )}
+                        bleedTop={screenshotIndex === 0}
+                    />
+                ))}
             </Layer>
 
             {nextProjects && (
@@ -94,19 +94,19 @@ const Project = ({
                                         slug: nextProjectSlug,
                                     } = {},
                                 }, projectIndex) => (
-                                        <Link
-                                            key={nextProjectId}
-                                            href={`/project?slug=${nextProjectSlug}`}
-                                            as={`/projects/${nextProjectSlug}`}
-                                        >
-                                            <a>
-                                                <Card
-                                                    fields={nextProjectFields}
-                                                    delay={80 * projectIndex}
-                                                />
-                                            </a>
-                                        </Link>
-                                    )}
+                                    <Link
+                                        key={nextProjectId}
+                                        href={`/project?slug=${nextProjectSlug}`}
+                                        as={`/projects/${nextProjectSlug}`}
+                                    >
+                                        <a>
+                                            <Card
+                                                fields={nextProjectFields}
+                                                delay={80 * projectIndex}
+                                            />
+                                        </a>
+                                    </Link>
+                                )}
                             />
                         )}
                         bleedBottom

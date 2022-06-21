@@ -35,19 +35,19 @@ const Home = ({ projects = [] }) => (
                             slug,
                         } = {},
                     }, projectIndex) => (
-                            <Link
-                                key={projectId}
-                                href={`/project?slug=${slug}`}
-                                as={`/projects/${slug}`}
-                            >
-                                <a>
-                                    <Card
-                                        fields={fields}
-                                        delay={80 * projectIndex}
-                                    />
-                                </a>
-                            </Link>
-                        )}
+                        <Link
+                            key={projectId}
+                            href={`/project?slug=${slug}`}
+                            as={`/projects/${slug}`}
+                        >
+                            <a>
+                                <Card
+                                    fields={fields}
+                                    delay={80 * projectIndex}
+                                />
+                            </a>
+                        </Link>
+                    )}
                 />
             </Layer>
         )}

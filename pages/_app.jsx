@@ -31,6 +31,7 @@ class MyApp extends App {
                 <Header />
 
                 <Container>
+                    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
                     <Component {...pageProps} />
                 </Container>
 
