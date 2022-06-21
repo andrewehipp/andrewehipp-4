@@ -6,7 +6,7 @@ module.exports = withSass(withOffline({
     cssLoaderOptions: {
         localIdentName: '[folder]__[local]___[hash:base64:5]',
     },
-    exportTrailingSlash: true,
+    trailingSlash: true,
     webpack(config) {
         config.module.rules.push({
             test: /.scss/,
