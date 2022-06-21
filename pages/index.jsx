@@ -37,8 +37,7 @@ const Home = ({ projects = [] }) => (
                     }, projectIndex) => (
                         <Link
                             key={projectId}
-                            href={`/project?slug=${slug}`}
-                            as={`/projects/${slug}`}
+                            href={`/projects/${slug}`}
                         >
                             <a>
                                 <Card
