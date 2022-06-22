@@ -1,15 +1,17 @@
 import React from 'react';
-import { useTrail, useSpring, useChain, animated } from 'react-spring'
+import {
+    useTrail, useSpring, useChain, animated,
+} from 'react-spring';
 
 import css from './about.module.scss';
 
-const About = () => {
-    const lines = [
-        'Front End Developer',
-        'Haven Agency',
-        'Ontario, California',
-    ];
+const lines = [
+    'Front End Developer',
+    'Haven Agency',
+    'Ontario, California',
+];
 
+const About = () => {
     const trailRef = React.useRef();
     const trail = useTrail(lines.length, {
         x: 0,
@@ -60,7 +62,21 @@ const About = () => {
 
             <animated.div style={spring}>
                 <p>Ten years as a Front End Developer building highly optimized, responsive, localized websites.</p>
-                <p>Currently building sites with <strong>React</strong>, <strong>Vue</strong>, <strong>Typescript</strong>, and <strong>Webpack</strong>.</p>
+                <p>
+                    Currently building sites with
+                    {' '}
+                    <strong>React</strong>
+                    ,
+                    {' '}
+                    <strong>Vue</strong>
+                    ,
+                    {' '}
+                    <strong>Typescript</strong>
+                    , and
+                    {' '}
+                    <strong>Webpack</strong>
+                    .
+                </p>
                 <p>Previously six years as a Web Designer with a B.F.A in Graphic Design.</p>
             </animated.div>
         </div>

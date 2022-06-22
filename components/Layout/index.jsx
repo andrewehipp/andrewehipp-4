@@ -1,7 +1,7 @@
 import React from 'react';
 import cc from 'classcat';
 
-import css from './layout.module.scss'
+import css from './layout.module.scss';
 
 const Layout = ({
     bleedTop,
