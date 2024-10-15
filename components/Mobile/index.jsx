@@ -24,7 +24,7 @@ const Mobile = ({
                         <source src={`https:${url}`} type="video/mp4" />
                     </Video>
                 ) : (
-                    <Image src={url} query="w=210" alt="" className={css.image} />
+                    <Image src={url} query="w=210&h=374&fit=fill&f=top" alt="" className={css.image} />
                 )}
             </Aspect>
         </div>

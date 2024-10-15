@@ -18,7 +18,7 @@ const Footer = React.memo(function Footer() {
                         <a href="mailto:andrewehipp@gmail.com?subject=Referral from andrewehipp.com">Please get in touch</a>.
                     </p>
 
-                    <p><small>Built with Next.js, Netlify, and Contentful.</small></p>
+                    <p><small>Currently building sites with <b>React/Next.js</b>, <b>Vue/Nuxt</b>, and <b>Typescript</b>, and <b>Contentful</b>.</small></p>
 
                     <p><small>&copy; Andrew Hipp {new Date().getFullYear()}</small></p>
                 </Layer>

@@ -17,7 +17,7 @@ const layout = {
     13: { wide: true },
 };
 
-const Home = ({ projects = [] }) => (
+const Home = ({ projects = [], about = '' }) => (
     <Layout
         bleedTop
         bleedBottom
@@ -51,21 +51,19 @@ const Home = ({ projects = [] }) => (
             </Layer>
         )}
         renderSidebar={() => (
-            <About />
+            <About body={about} />
         )}
     />
 );
 
 Home.getInitialProps = async () => {
-    const projects = await client.getEntries({
+    const projectListing = await client.getEntries({
         content_type: 'projectListing',
         'fields.name[in]': 'Home',
     })
-        .then((res) => res.items[0].fields.projects);
+        .then((res) => res.items[0].fields);
 
-    return {
-        projects,
-    };
+    return projectListing;
 };
 
 export default Home;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from 'react-spring';
 
 import Tools from '../Tools';
 
@@ -49,7 +49,7 @@ const ProjectHeader = ({
                 className={css.titleWrap}
                 style={{
                     ...titleRest,
-                    transform: titleX.interpolate(x => `translate3d(0, ${x}px, 0)`),
+                    transform: titleX.interpolate((x) => `translate3d(0, ${x}px, 0)`),
                 }}
             >
                 <animated.h1 className={css.title} style={{ height: titleHeight }}>
@@ -61,7 +61,7 @@ const ProjectHeader = ({
                 className={css.clientWrap}
                 style={{
                     ...clientRest,
-                    transform: clientX.interpolate(x => `translate3d(0, ${x}px, 0)`),
+                    transform: clientX.interpolate((x) => `translate3d(0, ${x}px, 0)`),
                 }}
             >
                 <animated.h3 className={css.client} style={{ height: clientHeight }}>

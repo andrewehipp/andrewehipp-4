@@ -18,7 +18,7 @@ const Tools = ({ tools = [] }) => {
         set((index) => ({
             opacity: 1,
             transformOrigin: 'right center',
-            transform: window.innerWidth > 1200 ? 'rotate(-45deg)' : 'rotate(0deg)',
+            transform: window.innerWidth > 1500 ? 'rotate(-45deg)' : 'rotate(0deg)',
             delay: 100 * index + 500,
         }));
     });
